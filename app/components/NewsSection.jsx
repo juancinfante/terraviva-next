@@ -1,34 +1,50 @@
 import NewsCard from "./NewsCard";
 
-export default function NewsSection() {
-  return (
-    <div className="container mx-auto max-w-7xl px-4 py-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
-        
-        {/* Card grande a la izquierda */}
-        <div className="md:col-span-2 flex flex-col h-full">
-          <NewsCard
-            title="Cuatro de semanas a puro festejos por el cumpleaños de la capital de Santiago"
-            province="Santiago del Estero"
-            image="https://picsum.photos/id/1011/800/500"
-            extraClass="h-full"  // pasamos extraClass para forzar altura
-          />
-        </div>
+export default async function NewsSection() {
+  try {
+    const res = await fetch("https://terraviva-api-new.vercel.app/api/noticias/5/1", {
+      // cache: 'no-store'
+    });
+    if (!res.ok) throw new Error("Error al obtener noticias");
+    const data = await res.json();
+    const noticias = data.docs;
 
-        {/* Columna derecha con dos cards */}
-        <div className="flex flex-col gap-4 h-full">
-          <NewsCard
-            title="Marcha de los Bombos 2025: así serán las vigilias, homenajes y recorridos"
-            province="Santiago del Estero"
-            image="https://picsum.photos/id/1012/400/250"
-          />
-          <NewsCard
-            title="Tucumán: Celebrarán el Primer Festival de El Alto de la Lechuza"
-            province="Tucuman"
-            image="https://picsum.photos/id/1013/400/250"
-          />
+    if (!noticias || noticias.length < 3) {
+      return <p>No hay noticias disponibles.</p>;
+    }
+
+    return (
+      <div className="container mx-auto max-w-7xl px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+          {/* Card grande a la izquierda */}
+          <div className="md:col-span-2 flex flex-col h-full">
+            <NewsCard
+              title={noticias[0].titulo}
+              province={noticias[0].provincia}
+              image={noticias[0].img_portada}
+              extraClass="h-full"
+            />
+          </div>
+
+          {/* Columna derecha con dos cards */}
+          <div className="flex flex-col gap-4 h-full">
+            <NewsCard
+              title={noticias[1].titulo}
+              province={noticias[1].provincia}
+              image={noticias[1].img_portada}
+            />
+            <NewsCard
+              title={noticias[2].titulo}
+              province={noticias[2].provincia}
+              image={noticias[2].img_portada}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error al cargar noticias:", error);
+    return <p className="text-center">Error al cargar noticias.</p>;
+  }
 }
+
