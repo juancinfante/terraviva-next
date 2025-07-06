@@ -1,19 +1,15 @@
 import Link from "next/link";
-import Title from "../../components/Title";
-import AsidePub from "../../components/AsidePub";
+import Title from "../../../../components/Title";
+import AsidePub from "../../../../components/AsidePub";
 
-export default async function page({ searchParams }) {
-
-  const sp = await searchParams
-
-  const page = parseInt(sp.p) || 1;
-  const limit = 8;
-
+export default async function page({ params }) {
+  const p = await params;
+  const limit = 8; // cantidad de noticias por página
   let noticias = [];
   let data = {};
 
   try {
-    let res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${limit}/${page}`, {
+    let res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${p.prov}/${limit}/${p.page}`, {
         cache: 'no-store'
       });
 
@@ -22,6 +18,7 @@ export default async function page({ searchParams }) {
     const json = await res.json();
     noticias = json.docs;
     data = json; // por si necesitás totalPages, etc.
+    console.log(data)
 
   } catch (error) {
     console.error(error);
@@ -51,12 +48,12 @@ export default async function page({ searchParams }) {
         {/* Paginación */}
         <div className="flex justify-center items-center gap-2 mt-4">
           {data.hasPrevPage ? 
-          <Link href={`/noticias?p=${(parseInt(page) - 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&lt;</Link>
+          <Link href={`/noticias/${p.prov}/${(parseInt(p.page) - 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&lt;</Link>
           : 
           <Link href="" className="px-2 py-1 border rounded text-gray-700 bg-gray-400 pointer-events-none">&lt;</Link>}
-          <span className="px-3 py-1 bg-red-700 text-white rounded">{page}</span>
+          <span className="px-3 py-1 bg-red-700 text-white rounded">{p.page}</span>
           {data.hasNextPage ? 
-          <Link href={`/noticias?p=${(parseInt(page) + 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&gt;</Link>
+          <Link href={`/noticias/${p.prov}/${(parseInt(p.page) + 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&gt;</Link>
           : 
           <Link href="" className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100 pointer-events-none">&gt;</Link>}
         </div>

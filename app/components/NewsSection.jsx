@@ -19,9 +19,7 @@ export default async function NewsSection() {
           {/* Card grande a la izquierda */}
           <div className="md:col-span-2 flex flex-col h-full">
             <NewsCard
-              title={noticias[0].titulo}
-              province={noticias[0].provincia}
-              image={noticias[0].img_portada}
+              noticia={noticias[0]}
               extraClass="h-full"
             />
           </div>
@@ -29,14 +27,12 @@ export default async function NewsSection() {
           {/* Columna derecha con dos cards */}
           <div className="flex flex-col gap-4 h-full">
             <NewsCard
-              title={noticias[1].titulo}
-              province={noticias[1].provincia}
-              image={noticias[1].img_portada}
+              noticia={noticias[1]}
+              extraClass="h-full"
             />
             <NewsCard
-              title={noticias[2].titulo}
-              province={noticias[2].provincia}
-              image={noticias[2].img_portada}
+              noticia={noticias[2]}
+              extraClass="h-full"
             />
           </div>
         </div>

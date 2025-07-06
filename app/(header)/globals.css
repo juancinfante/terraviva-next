@@ -24,3 +24,30 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.border-section{
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+}
+.border-section::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #61535310;
+    z-index: -1;
+}
+.border-section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 5px;
+    background: #c00;
+}

@@ -1,4 +1,5 @@
 import GalleryCard from "./GalleryCard";
+import Title from "./Title";
 import VerMasBtn from "./VerMasBtn";
 
 export default async function GaleriasSection() {
@@ -26,9 +27,7 @@ export default async function GaleriasSection() {
 
     return (
       <section className="container mx-auto max-w-7xl px-4 py-6">
-        <h2 className="text-lg font-bold mb-2 text-black">Galerías</h2>
-        <div className="h-1 w-12 bg-red-600 mb-4"></div>
-
+        <Title title="Galería"/>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {galleries.map((gal, index) => (
             <GalleryCard
