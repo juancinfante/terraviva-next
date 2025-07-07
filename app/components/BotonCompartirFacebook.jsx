@@ -1,6 +1,4 @@
 'use client';
-import { FaFacebookF } from 'react-icons/fa6';
-
 
 export default function BotonCompartirFacebook({ url }) {
     const handleClick = () => {
@@ -18,7 +16,7 @@ export default function BotonCompartirFacebook({ url }) {
             onClick={handleClick}
             className="flex items-center bg-blue-600 hover:bg-blue-700 cursor-pointer p-2 rounded-full"
         >
-            <FaFacebookF />
+            <img src='/facebook-svgrepo-com.svg' className="w-5"/>
         </button>
     );
 }

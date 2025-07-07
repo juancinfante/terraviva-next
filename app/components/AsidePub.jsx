@@ -1,5 +1,5 @@
 import SocialStats from './SocialStats'
-
+import OptimizedImage from './OptimizedImage';
 export default async function AsidePub() {
     // Fetch publicidades
         const publisRes = await fetch("https://terraviva-api-new.vercel.app/api/publis", {
@@ -32,7 +32,13 @@ export default async function AsidePub() {
                 {publicidadesInicio.map((publi, idx) => (
                     <div key={publi._id || idx} className="bg-gray-100 rounded overflow-hidden">
                         <a href={publi.url} target="_blank" rel="noreferrer">
-                            <img src={publi.foto} alt={publi.titulo || "Publicidad"} className="w-full" />
+                            <OptimizedImage
+                              url={publi.foto}
+                              alt={publi.titulo}
+                              width={280}
+                              crop="fill"
+                              className="w-full object-cover"
+                            />
                         </a>
                     </div>
                 ))}

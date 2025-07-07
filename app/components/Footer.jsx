@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
+import OptimizedImage from "./OptimizedImage";
 
 export default function Footer() {
     return (
@@ -6,24 +6,30 @@ export default function Footer() {
             {/* Parte superior */}
             <div className="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center py-6 px- gap-4">
                 {/* Logo */}
-                <img src="/terraviva-bco.png" alt="Terraviva" className="h-14" />
-
+                <OptimizedImage
+                    url="https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751903091/terraviva/terraviva-bco_dvxzbk.png"
+                    alt="Terraviva.com.ar"
+                    crop=""
+                    // height={}
+                    width={180}
+                    className="object-cover"
+                />
                 {/* Texto */}
                 <p className="text-center text-sm">Santiago del Estero, Argentina.</p>
 
                 {/* Redes */}
                 <div className="flex gap-2">
-                    <a href="#" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <FaFacebookF />
+                    <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
+                        <img src='/facebook-svgrepo-com.svg' className="w-5" />
                     </a>
-                    <a href="#" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <FaInstagram />
+                    <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
+                        <img src='/x-svgrepo-com.svg' className="w-5" />
                     </a>
-                    <a href="#" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <FaXTwitter />
+                    <a href="https://www.instagram.com/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
+                        <img src='/insta-svgrepo-com.svg' className="w-5" />
                     </a>
-                    <a href="#" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <FaYoutube />
+                    <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
+                        <img src='/youtube-svgrepo-com.svg' className="w-5" />
                     </a>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import BotonCompartirFacebook from '../../../components/BotonCompartirFacebook';
 import BotonCompartirWhatsApp from '../../../components/BotonCompartirWhatsapp';
 import BotonCompartirX from '../../../components/BotonCompartirX';
 import TePuedeInteresar from '../../../components/TePuedeInteresar';
+import OptimizedImage from '../../../components/OptimizedImage';
 
 
 export async function generateMetadata({ params }) {
@@ -127,11 +128,14 @@ export default async function ArticlePage({ params }) {
 
           {/* Imagen principal */}
           <div className="overflow-hidden rounded">
-            <img
-              src={noticia.img_portada}
-              alt="Federico Córdoba"
-              className="w-full object-cover"
-            />
+            <OptimizedImage
+                    url={noticia.img_portada}
+                    alt={noticia.titulo}
+                    crop="fill"
+                    height={580}
+                    width={960}
+                    className="w-full object-cover"
+                  />
           </div>
           {/* Botones compartir */}
           <div className="flex w-full justify-end space-x-2 mt-4">

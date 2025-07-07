@@ -1,5 +1,4 @@
 'use client';
-import { FaTwitter , FaX } from 'react-icons/fa6';
 
 export default function BotonCompartirX({ url, texto = '' }) {
   const handleClick = () => {
@@ -19,7 +18,7 @@ export default function BotonCompartirX({ url, texto = '' }) {
       className="flex items-center bg-black hover:bg-gray-900 cursor-pointer rounded-full p-2"
       aria-label="Compartir en X"
     >
-      <FaX />
+       <img src='/x-svgrepo-com.svg' className="w-5"/>
     </button>
   );
 }

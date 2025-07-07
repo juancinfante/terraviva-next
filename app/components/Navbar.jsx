@@ -1,6 +1,8 @@
 'use client'
 
+import Link from 'next/link';
 import { useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 // import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 // import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'; // Hamburguesa y X
 
@@ -16,10 +18,18 @@ export default function Navbar() {
                     <span>JUEVES 03 DE JULIO, 10.4°c</span>
                     <div className="flex gap-3">
                         {/* iconos */}
-                        {/* <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaXTwitter /></a>
-            <a href="#"><FaYoutube /></a> */}
+                        <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
+                            <img src='/facebook-svgrepo-com.svg' className="w-4"/>
+                        </a>
+                        <a href="https://www.instagram.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
+                            <img src='/insta-svgrepo-com.svg' className="w-4"/>
+                        </a>
+                        <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer">
+                            <img src='/x-svgrepo-com.svg' className="w-4"/>
+                        </a>
+                        <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer">
+                            <img src='/youtube-svgrepo-com.svg' className="w-4"/>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -31,9 +41,17 @@ export default function Navbar() {
             }}>
                 <div className="container mx-auto max-w-7xl flex justify-between items-center py-4 px-4">
                     {/* Logo */}
+                    <Link href="/">
                     <div className="flex items-center">
-                        <img src="/terraviva-bco.png" alt="Terraviva" className="h-20" />
+                        <OptimizedImage
+                            url="https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751903091/terraviva/terraviva-bco_dvxzbk.png"
+                            alt="Terraviva.com.ar"
+                            crop="fill"
+                            width={180}
+                            className="w-full object-cover"
+                            />
                     </div>
+                    </Link>
 
                     {/* Menú y buscador: solo visible en md+ */}
                     <div className="hidden md:flex items-center gap-4">
@@ -46,10 +64,33 @@ export default function Navbar() {
                                     Noticias ▾
                                 </button>
                                 {dropdownOpen && (
-                                    <div className="absolute top-full left-0 bg-white text-black mt-1 rounded shadow w-40 z-10">
-                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">Todas</a>
-                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">Buenos Aires</a>
+                                    <div className="absolute top-full left-0 bg-white text-black mt-1 rounded shadow w-40 z-10 max-h-64 overflow-y-auto">
+                                        <Link href="/noticias" className="block px-4 py-2 hover:bg-gray-100">Todas</Link>
+                                        <Link href="/noticias/Buenos Aires/1" className="block px-4 py-2 hover:bg-gray-100">Buenos Aires</Link>
+                                        <Link href="/noticias/Capital Federal/1" className="block px-4 py-2 hover:bg-gray-100">Capital Federal</Link>
+                                        <Link href="/noticias/Catamarca/1" className="block px-4 py-2 hover:bg-gray-100">Catamarca</Link>
+                                        <Link href="/noticias/Jujuy/1" className="block px-4 py-2 hover:bg-gray-100">Jujuy</Link>
+                                        <Link href="/noticias/Cordoba/1" className="block px-4 py-2 hover:bg-gray-100">Córdoba</Link>
+                                        <Link href="/noticias/La Rioja/1" className="block px-4 py-2 hover:bg-gray-100">La Rioja</Link>
+                                        <Link href="/noticias/Salta/1" className="block px-4 py-2 hover:bg-gray-100">Salta</Link>
+                                        <Link href="/noticias/Santiago del Estero/1" className="block px-4 py-2 hover:bg-gray-100">Santiago del Estero</Link>
+                                        <Link href="/noticias/Tucuman/1" className="block px-4 py-2 hover:bg-gray-100">Tucumán</Link>
+                                        <Link href="/noticias/Chaco/1" className="block px-4 py-2 hover:bg-gray-100">Chaco</Link>
+                                        <Link href="/noticias/Chubut/1" className="block px-4 py-2 hover:bg-gray-100">Chubut</Link>
+                                        <Link href="/noticias/Corrientes/1" className="block px-4 py-2 hover:bg-gray-100">Corrientes</Link>
+                                        <Link href="/noticias/Entre Rios/1" className="block px-4 py-2 hover:bg-gray-100">Entre Ríos</Link>
+                                        <Link href="/noticias/Formosa/1" className="block px-4 py-2 hover:bg-gray-100">Formosa</Link>
+                                        <Link href="/noticias/La Pampa/1" className="block px-4 py-2 hover:bg-gray-100">La Pampa</Link>
+                                        <Link href="/noticias/Mendoza/1" className="block px-4 py-2 hover:bg-gray-100">Mendoza</Link>
+                                        <Link href="/noticias/Misiones/1" className="block px-4 py-2 hover:bg-gray-100">Misiones</Link>
+                                        <Link href="/noticias/Neuquen/1" className="block px-4 py-2 hover:bg-gray-100">Neuquén</Link>
+                                        <Link href="/noticias/Rio Negro/1" className="block px-4 py-2 hover:bg-gray-100">Río Negro</Link>
+                                        <Link href="/noticias/San Juan/1" className="block px-4 py-2 hover:bg-gray-100">San Juan</Link>
+                                        <Link href="/noticias/San Luis/1" className="block px-4 py-2 hover:bg-gray-100">San Luis</Link>
+                                        <Link href="/noticias/Santa Cruz/1" className="block px-4 py-2 hover:bg-gray-100">Santa Cruz</Link>
+                                        <Link href="/noticias/Tierra del Fuego/1" className="block px-4 py-2 hover:bg-gray-100">Tierra del Fuego</Link>
                                     </div>
+
                                 )}
                             </div>
                             <a href="#" className="hover:underline">Agenda</a>
