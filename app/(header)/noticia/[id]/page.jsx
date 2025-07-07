@@ -139,9 +139,9 @@ export default async function ArticlePage({ params }) {
           </div>
           {/* Botones compartir */}
           <div className="flex w-full justify-end space-x-2 mt-4">
-            <BotonCompartirFacebook url={`https://www.terraviva.com.ar/noticia/${noticia._id}`}/>
-            <BotonCompartirWhatsApp url={`https://www.terraviva.com.ar/noticia/${noticia._id}`}/>
-            <BotonCompartirX url={`https://www.terraviva.com.ar/noticia/${noticia._id}`}/>
+            <BotonCompartirFacebook url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>
+            <BotonCompartirWhatsApp url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>
+            <BotonCompartirX url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>
           </div>
           {/* Texto de la nota */}
           <div className="space-y-4 text-gray-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: noticia.texto }}>
