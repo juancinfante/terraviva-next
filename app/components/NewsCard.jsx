@@ -9,7 +9,7 @@ export default function NewsCard({ noticia, extraClass = "" }) {
                     url={noticia.img_portada}
                     alt={noticia.titulo}
                     crop="fill"
-                    className="w-full object-cover"
+                    className="w-full h-full object-cover"
                   />
       <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4">
         <span className=" text-white text-xs font-semibold p-2 rounded" style={{

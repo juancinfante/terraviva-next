@@ -3,12 +3,23 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import OptimizedImage from './OptimizedImage';
+import { useRouter } from 'next/navigation';
 // import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 // import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'; // Hamburguesa y X
 
 export default function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const [query, setQuery] = useState("");
+    const router = useRouter();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (query.trim()) {
+            router.push(`/noticias?b=${encodeURIComponent(query.trim())}`);
+        }
+    };
 
     return (
         <header className="w-full">
@@ -19,16 +30,16 @@ export default function Navbar() {
                     <div className="flex gap-3">
                         {/* iconos */}
                         <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/facebook-svgrepo-com.svg' className="w-4"/>
+                            <img src='/facebook-svgrepo-com.svg' className="w-4" />
                         </a>
                         <a href="https://www.instagram.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/insta-svgrepo-com.svg' className="w-4"/>
+                            <img src='/insta-svgrepo-com.svg' className="w-4" />
                         </a>
                         <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer">
-                            <img src='/x-svgrepo-com.svg' className="w-4"/>
+                            <img src='/x-svgrepo-com.svg' className="w-4" />
                         </a>
                         <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/youtube-svgrepo-com.svg' className="w-4"/>
+                            <img src='/youtube-svgrepo-com.svg' className="w-4" />
                         </a>
                     </div>
                 </div>
@@ -42,15 +53,15 @@ export default function Navbar() {
                 <div className="container mx-auto max-w-7xl flex justify-between items-center py-4 px-4">
                     {/* Logo */}
                     <Link href="/">
-                    <div className="flex items-center">
-                        <OptimizedImage
-                            url="https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751903091/terraviva/terraviva-bco_dvxzbk.png"
-                            alt="Terraviva.com.ar"
-                            crop="fill"
-                            width={180}
-                            className="w-full object-cover"
+                        <div className="flex items-center">
+                            <OptimizedImage
+                                url="https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751903091/terraviva/terraviva-bco_dvxzbk.png"
+                                alt="Terraviva.com.ar"
+                                crop="fill"
+                                width={180}
+                                className="w-full object-cover"
                             />
-                    </div>
+                        </div>
                     </Link>
 
                     {/* Menú y buscador: solo visible en md+ */}
@@ -98,16 +109,24 @@ export default function Navbar() {
                         </nav>
 
                         {/* Buscador */}
-                        <div className="flex items-center border border-white rounded overflow-hidden">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="flex items-center bg-white rounded-4xl shadow-sm overflow-hidden p-2"
+                        >
                             <input
                                 type="text"
-                                placeholder="buscar"
-                                className="px-2 py-1 text-black focus:outline-none"
+                                placeholder="Buscar..."
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-xs ps-1"
                             />
-                            <button className="bg-white text-black px-2">
-                                🔍
+                            <button
+                                type="submit"
+                                className="hover:bg-gray-100 transition"
+                            >
+                                <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
                             </button>
-                        </div>
+                        </form>
                     </div>
 
                     {/* Botón hamburguesa: visible solo en mobile */}
@@ -116,7 +135,7 @@ export default function Navbar() {
                         onClick={() => setSidebarOpen(true)}
                     >
                         {/* <HiOutlineMenuAlt3 /> */}
-            ///
+                        <img src='/menu-hamburger-svgrepo-com.svg' className="w-10" />
                     </button>
                 </div>
             </div>
@@ -130,7 +149,7 @@ export default function Navbar() {
                         onClick={() => setSidebarOpen(false)}
                     >
                         {/* <HiOutlineX /> / */}
-            ///
+                        <img src='/times-xs-svgrepo-com.svg' className="w-4" />
                     </button>
                 </div>
                 <nav className="flex flex-col gap-2 p-4 text-black font-semibold">
@@ -148,16 +167,25 @@ export default function Navbar() {
                     )}
                     <a href="#" className="hover:underline">Agenda</a>
                     <a href="#" className="hover:underline">Galería</a>
-                    <div className="mt-4 flex items-center border border-gray-400 rounded overflow-hidden">
+                    {/* Buscador Mobile*/}
+                    <form
+                        onSubmit={handleSubmit}
+                        className="flex items-center bg-white rounded-4xl shadow-sm overflow-hidden p-2"
+                    >
                         <input
                             type="text"
-                            placeholder="buscar"
-                            className="px-2 py-1 text-black focus:outline-none w-full"
+                            placeholder="Buscar..."
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-xs ps-1"
                         />
-                        <button className="bg-gray-200 text-black px-2">
-                            🔍
+                        <button
+                            type="submit"
+                            className="hover:bg-gray-100 transition"
+                        >
+                            <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
                         </button>
-                    </div>
+                    </form>
                 </nav>
             </div>
 
