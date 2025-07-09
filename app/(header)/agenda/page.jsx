@@ -4,7 +4,7 @@ import ListaEventos from "../../components/ListaEventos";
 export default async function page() {
   try {
     // Fetch noticias
-    const eventos = await fetch("http:localhost:4001/api/eventos/1/1", {
+    const eventos = await fetch("https://terraviva-api-new.vercel.app/api/eventos/1/1", {
       // cache: 'no-store'
     });
     const eventosData = await eventos.json();
