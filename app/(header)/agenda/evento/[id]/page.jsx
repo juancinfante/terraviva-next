@@ -24,13 +24,11 @@ export async function generateMetadata({ params }) {
       };
     }
 
-    // Función para quitar HTML si quisieras usar 'texto'
     const stripHtml = (html) => (html || "").replace(/<[^>]*>?/gm, '').trim();
 
-    // Usamos 'descripcion' que ya viene limpio del backend
     const descripcionLimpia = evento.texto
-      ? evento.texto
-      : stripHtml(evento.texto).slice(0, 160); // fallback
+      ? stripHtml(evento.texto).slice(0, 160)
+      : "Descripción no disponible.";
 
     return {
       title: evento.titulo,
@@ -66,7 +64,7 @@ export async function generateMetadata({ params }) {
 
 export default async function page({ params }) {
 
-   function obtenerFechaFormateadaCompleta(fechaStr) {
+  function obtenerFechaFormateadaCompleta(fechaStr) {
     const fecha = new Date(fechaStr + 'T00:00:00'); // Fuerza local
 
     const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
@@ -81,7 +79,7 @@ export default async function page({ params }) {
   }
 
   // Función para quitar HTML si quisieras usar 'texto'
-    const stripHtml = (html) => (html || "").replace(/<[^>]*>?/gm, '').trim();
+  const stripHtml = (html) => (html || "").replace(/<[^>]*>?/gm, '').trim();
 
   const p = await params
   try {

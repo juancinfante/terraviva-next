@@ -10,14 +10,14 @@ export async function generateMetadata ({ params }) {
         .join(' ');
 
     return {
-      title: `La agenda mas completa del país. - ${nombreProvincia}`,
+      title: `La agenda mas completa del país - ${nombreProvincia}`,
       description: "Descubrí la agenda más completa del país para no perderte ningún festival, peña o espectáculo de folclore.",
       openGraph: {
-        title: `La agenda mas completa del país. - ${nombreProvincia}`,
+        title: `La agenda mas completa del país - ${nombreProvincia}`,
         description: "Descubrí la agenda más completa del país para no perderte ningún festival, peña o espectáculo de folclore.",
         images: [
           {
-            url: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1752117968/agenda-metadata_y7bgxv.png",
+            url: "https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
             width: 1200,
             height: 630,
             alt: `Imagen de ${`La agenda mas completa del país. - ${nombreProvincia}`}`,
@@ -26,9 +26,9 @@ export async function generateMetadata ({ params }) {
       },
       twitter: {
         card: 'summary_large_image',
-        title: `La agenda mas completa del país. - ${nombreProvincia}`,
+        title: `La agenda mas completa del país - ${nombreProvincia}`,
         description: "Descubrí la agenda más completa del país para no perderte ningún festival, peña o espectáculo de folclore.",
-        image: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1752117968/agenda-metadata_y7bgxv.png",
+        image: "https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
       },
     };
 }
