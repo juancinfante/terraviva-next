@@ -3,15 +3,15 @@ import Title from './Title'
 export default function SocialStats() {
   return (
     <div className="bg-white p-4 rounded shadow">
-      <Title title="Redes" />
-      <ul className="flex flex-col gap-2">
+      <Title title="Redes"/>
+      <ul className="flex flex-col gap-2 mt-5">
         <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
           <li className="flex justify-between items-center bg-blue-600 text-white px-2 py-1 rounded">
             <span className="flex items-center gap-1">
               <img src='/facebook-svgrepo-com.svg' className="w-5" />
               Facebook
             </span>
-            <span>+242mil</span>
+            <span>+287mil</span>
           </li>
         </a>
         <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer">
@@ -40,7 +40,7 @@ export default function SocialStats() {
               <img src='/insta-svgrepo-com.svg' className="w-5" />
               Instagram
             </span>
-            <span>+36mil</span>
+            <span>+78mil</span>
           </li>
         </a>
       </ul>

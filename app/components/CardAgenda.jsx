@@ -18,7 +18,7 @@ export default function CardAgenda({ evento }) {
   }
 
   return (
-    <Link href={`/agenda/${evento._id}`} className="h-full">
+    <Link href={`/agenda/evento/${evento._id}`} className="h-full">
       <div className="flex flex-col  rounded-2xl bg-white overflow-hidden  hover:shadow-lg transition-shadow duration-300 h-full">
         <div className="relative overflow-hidden group">
           {/* <img src={evento.img_portada} alt={evento.titulo} className="w-full h-55 object-cover" /> */}

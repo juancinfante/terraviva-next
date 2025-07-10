@@ -20,7 +20,7 @@ const HeaderAgenda = ({ provincia }) => {
 
     return (
         <>
-            <div className="relative col-span-4 z-0 mb-1 rounded-2xl overflow-hidden w-full h-[300px] md:h-[400px]">
+            <div className="relative col-span-4 mt-4 md:mt-0 z-0 mb-1 rounded-2xl overflow-hidden w-full h-[300px] md:h-[400px]">
                 {/* Imagen de fondo */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"

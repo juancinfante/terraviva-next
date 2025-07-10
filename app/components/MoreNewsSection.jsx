@@ -22,7 +22,7 @@ export default async function MoreNewsSection() {
                             noticia={n}
                         />
                     ))}
-                    <VerMasBtn />
+                    <VerMasBtn pagina="noticias"/>
                 </div>
 
                 {/* Aside derecho para publicidad + redes */}

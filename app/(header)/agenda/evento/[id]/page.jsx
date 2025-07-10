@@ -1,6 +1,6 @@
-import AsidePub from '../../../components/AsidePub'
-import OptimizedImage from '../../../components/OptimizedImage'
-import Title from '../../../components/Title'
+import AsidePub from '../../../../components/AsidePub'
+import OptimizedImage from '../../../../components/OptimizedImage'
+import Title from '../../../../components/Title'
 
 export async function generateMetadata({ params }) {
   try {
@@ -100,7 +100,7 @@ export default async function page({ params }) {
       <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 gap-4">
         <Title title="Evento" />
 
-        <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-4 md:mt-0 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Flyer */}
           <div
             className="relative col-span-3 flex justify-center items-center overflow-hidden rounded-xl"

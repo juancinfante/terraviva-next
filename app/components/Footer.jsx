@@ -1,3 +1,4 @@
+import Link from "next/link";
 import OptimizedImage from "./OptimizedImage";
 
 export default function Footer() {
@@ -39,11 +40,11 @@ export default function Footer() {
                 <div className="container mx-auto max-w-7xl text-xs flex flex-col md:flex-row justify-between items-center px- py-2">
                     <p>Copyright © 2024 Terraviva</p>
                     <div className="flex gap-4 mt-2 md:mt-0">
-                        <a href="#" className="hover:underline">Noticias</a>
-                        <a href="#" className="hover:underline">Agenda</a>
-                        <a href="#" className="hover:underline">Galería</a>
-                        <a href="#" className="hover:underline">Colaboradores</a>
-                        <a href="#" className="hover:underline">Contacto</a>
+                        <Link href="/noticias/" className="hover:underline">Noticias</Link>
+                        <Link href="/agenda/" className="hover:underline">Agenda</Link>
+                        <Link href="/galeria/" className="hover:underline">Galería</Link>
+                        {/* <Link href="/colaboradores/" className="hover:underline">Colaboradores</Link> */}
+                        {/* <Link href="" className="hover:underline">Contacto</Link> */}
                     </div>
                 </div>
             </div>

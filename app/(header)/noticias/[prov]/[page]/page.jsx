@@ -3,6 +3,47 @@ import Title from "../../../../components/Title";
 import AsidePub from "../../../../components/AsidePub";
 import OptimizedImage from "../../../../components/OptimizedImage";
 
+export async function generateMetadata({ params }) {
+  try {
+    const p = await params;
+    console.log(p.prov)
+    
+    if (!p.prov) {
+      return {
+        title: 'galeria no encontrada',
+        description: 'No pudimos encontrar la galeria solicitada.',
+      };
+    }
+    return {
+      title: `${decodeURIComponent(p.prov)} - Terraviva`,
+      description: "Nuestro folclore, nuestra gente.",
+      openGraph: {
+        title: `${decodeURIComponent(p.prov)} - Terraviva`,
+        description: "Nuestro folclore, nuestra gente.",
+        images: [
+          {
+            url: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751776811/terraviva/Captura_lfcizt.png",
+            width: 1200,
+            height: 630,
+            alt: `Imagen de ${decodeURIComponent(p.prov)} - Terraviva`,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${decodeURIComponent(p.prov)} - Terraviva`,
+        description: "Nuestro folclore, nuestra gente.",
+        image: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751776811/terraviva/Captura_lfcizt.png",
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Error al cargar noticia',
+      description: 'Hubo un problema al obtener los datos de la noticia.',
+    };
+  }
+}
+
 export default async function page({ params }) {
   const p = await params;
   const limit = 8; // cantidad de noticias por página
@@ -19,12 +60,12 @@ export default async function page({ params }) {
     const json = await res.json();
     noticias = json.docs;
     data = json; // por si necesitás totalPages, etc.
-    console.log(data)
 
   } catch (error) {
     console.error(error);
     return <p className="text-center">Error al cargar noticias.</p>;
   }
+
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
       <Title title={decodeURIComponent(p.prov)} />

@@ -26,9 +26,9 @@ export default function ListaEventos({ provincia }) {
         .map(p => p.charAt(0).toUpperCase() + p.slice(1)) // Capitalizar cada palabra
         .join(' ');
       
-      url = `http://localhost:4001/api/eventos/${encodeURIComponent(nombreProvincia)}/${limit}/${pageNumber}`;
+      url = `https://terraviva-api-new.vercel.app/api/eventos/${encodeURIComponent(nombreProvincia)}/${limit}/${pageNumber}`;
     } else {
-      url = `http://localhost:4001/api/eventos/${limit}/${pageNumber}`;
+      url = `https://terraviva-api-new.vercel.app/api/eventos/${limit}/${pageNumber}`;
     }
 
     const res = await fetch(url);

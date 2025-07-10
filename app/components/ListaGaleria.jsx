@@ -79,13 +79,6 @@ export default function ListaGaleria({ initialData, initialHasNext, initialPage,
   const [hasNext, setHasNext] = useState(initialHasNext);
   const [isLoading, setIsLoading] = useState(false);
 
-  function formatDate(fecha) {
-    const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    const date = new Date(fecha);
-    return `${days[date.getDay()]} ${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}`;
-  }
-
   // Fetch cuando page cambia (excepto la primera vez)
   useEffect(() => {
     if (page === initialPage) return; // evitar duplicar el SSR inicial
@@ -124,14 +117,12 @@ export default function ListaGaleria({ initialData, initialHasNext, initialPage,
         {eventos.map((gal, index) => (
           <GalleryCard
               key={gal._id || index}
-              date={formatDate(gal.fecha)}           // adaptá si la propiedad de fecha tiene otro nombre
-              title={gal.nombre}        // adaptá si el campo se llama distinto
-              image={gal.portada}   // adaptá según la propiedad que tengas
+              evento={gal}  // adaptá según la propiedad que tengas
             />
         ))}
       </div>
       
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center m-10">
         {isLoading && <span className="text-gray-500">Cargando más...</span>}
         {!hasNext && !isLoading && <span className="text-gray-500">No hay más galerías.</span>}
       </div>

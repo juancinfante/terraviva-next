@@ -104,8 +104,8 @@ export default function Navbar() {
 
                                 )}
                             </div>
-                            <a href="#" className="hover:underline">Agenda</a>
-                            <a href="#" className="hover:underline">Galería</a>
+                            <Link href="/agenda/" className="hover:underline">Agenda</Link>
+                            <Link href="/galeria/" className="hover:underline">Galería</Link>
                         </nav>
 
                         {/* Buscador */}
@@ -142,7 +142,9 @@ export default function Navbar() {
 
             {/* Sidebar (menu mobile) */}
             <div className={`fixed top-0 right-0 h-full w-64 bg-white z-20 transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 shadow-lg`}>
-                <div className="flex justify-between items-center p-4 border-b">
+                <div className="flex justify-between items-center p-4 border-b" style={{
+                    background: 'linear-gradient(285deg, #f92a28 27%, #da1752 100%, #fff 100%)',
+                }}>
                     <img src="/terraviva-bco.png" alt="Terraviva" className="h-10" />
                     <button
                         className="text-black text-2xl"
@@ -153,24 +155,9 @@ export default function Navbar() {
                     </button>
                 </div>
                 <nav className="flex flex-col gap-2 p-4 text-black font-semibold">
-                    <button
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className="text-left"
-                    >
-                        Noticias ▾
-                    </button>
-                    {dropdownOpen && (
-                        <div className="ml-4 flex flex-col gap-1">
-                            <a href="#" className="hover:underline">Todas</a>
-                            <a href="#" className="hover:underline">Buenos Aires</a>
-                        </div>
-                    )}
-                    <a href="#" className="hover:underline">Agenda</a>
-                    <a href="#" className="hover:underline">Galería</a>
-                    {/* Buscador Mobile*/}
                     <form
                         onSubmit={handleSubmit}
-                        className="flex items-center bg-white rounded-4xl shadow-sm overflow-hidden p-2"
+                        className="flex items-center bg-white rounded-4xl shadow-sm overflow-hidden p-2 border border-gray-300"
                     >
                         <input
                             type="text"
@@ -186,6 +173,22 @@ export default function Navbar() {
                             <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
                         </button>
                     </form>
+                    <button
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        className="text-left ps-3"
+                    >
+                        Noticias ▾
+                    </button>
+                    {dropdownOpen && (
+                        <div className="ml-4 flex flex-col gap-1">
+                            <a href="#" className="hover:underline">Todas</a>
+                            <a href="#" className="hover:underline">Buenos Aires</a>
+                        </div>
+                    )}
+                    <a href="#" className="hover:underline ps-3">Agenda</a>
+                    <a href="#" className="hover:underline ps-3">Galería</a>
+                    {/* Buscador Mobile*/}
+
                 </nav>
             </div>
 

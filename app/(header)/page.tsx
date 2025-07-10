@@ -21,9 +21,9 @@ export const generateMetadata = () => {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Título Twitter fijo',
-      description: 'Descripción Twitter fija',
-      images: ['https://misitio.com/og-image.jpg'],
+      title: 'Terraviva - Nuestro folclore, nuestra gente.',
+      description: 'Diario digital de folclore.',
+      image: 'https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751776811/terraviva/Captura_lfcizt.png',
     },
   };
 };

@@ -110,9 +110,9 @@ export default async function ArticlePage({ params }) {
       <>
       <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Contenido principal de la nota */}
+          <Title title={noticia.provincia}/>
         <article className="md:col-span-3 space-y-4">
           {/* Provincia */}
-          <Title title={noticia.provincia} />
 
           {/* Título */}
           <h1 className="text-2xl md:text-4xl font-bold leading-tight text-[#333]">
@@ -138,7 +138,8 @@ export default async function ArticlePage({ params }) {
                   />
           </div>
           {/* Botones compartir */}
-          <div className="flex w-full justify-end space-x-2 mt-4">
+          <div className="flex w-full items-center justify-end space-x-2 mt-4">
+            {/* <h1 className='text-[#333]'>Compartir</h1> */}
             <BotonCompartirFacebook url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>
             <BotonCompartirWhatsApp url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>
             <BotonCompartirX url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`}/>

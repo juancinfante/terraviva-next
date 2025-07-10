@@ -33,6 +33,7 @@ export default function AlbumSlider({ images }) {
         freeMode
         watchSlidesProgress
         modules={[FreeMode, Thumbs]}
+        className="mb-10"
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx}>
