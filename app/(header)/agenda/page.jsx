@@ -11,7 +11,7 @@ export const generateMetadata = () => {
         description: "Descubrí la agenda más completa del país para no perderte ningún festival, peña o espectáculo de folclore.",
         images: [
           {
-            url: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1752131241/agenda-terraviva.https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
+            url: "https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
             width: 1200,
             height: 630,
             alt: `Imagen de ${"La agenda mas completa del país"}`,
@@ -22,7 +22,7 @@ export const generateMetadata = () => {
         card: 'summary_large_image',
         title: "La agenda mas completa del país",
         description: "Descubrí la agenda más completa del país para no perderte ningún festival, peña o espectáculo de folclore.",
-        image: "https://res.cloudinary.com/dwjhbrsmf/image/upload/v1752131241/agenda-terraviva.https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
+        image: "https://res.cloudinary.com/dwjhbrsmf/image/upload/w_1200,h_637,c_fill,q_auto,f_auto/v1752131241/agenda-terraviva.jpg",
       },
     };
 }
