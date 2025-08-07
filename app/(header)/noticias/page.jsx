@@ -46,12 +46,12 @@ export default async function page({ searchParams }) {
 
     if (b) {
       // Si hay búsqueda, usamos endpoint de búsqueda
-      res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/b/${b}/${limit}/${page}`, {
+      res = await fetch(`http://localhost:4001/api/noticia/b/${b}/${limit}/${page}`, {
         cache: 'no-store'
       });
     } else {
       // Si no, traemos las noticias normales
-      res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${limit}/${page}`, {
+      res = await fetch(`http://localhost:4001/api/noticias/${limit}/${page}`, {
         cache: 'no-store'
       });
     };
@@ -81,7 +81,7 @@ export default async function page({ searchParams }) {
         {noticias.map((n, index) => (
           <div key={n._id || index}>
             <div className="hidden md:block" key={n._id || index}>
-              <Link href={`/noticia/${n._id}`} >
+              <Link href={`/noticia/${n.slugTitulo}`} >
                 <div className="flex gap-4 bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                   <OptimizedImage
                     url={n.img_portada}

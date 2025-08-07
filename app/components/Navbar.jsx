@@ -77,29 +77,29 @@ export default function Navbar() {
                                 {dropdownOpen && (
                                     <div className="absolute top-full left-0 bg-white text-black mt-1 rounded shadow w-40 z-10 max-h-64 overflow-y-auto">
                                         <Link href="/noticias" className="block px-4 py-2 hover:bg-gray-100">Todas</Link>
-                                        <Link href="/noticias/Buenos Aires/1" className="block px-4 py-2 hover:bg-gray-100">Buenos Aires</Link>
-                                        <Link href="/noticias/Capital Federal/1" className="block px-4 py-2 hover:bg-gray-100">Capital Federal</Link>
-                                        <Link href="/noticias/Catamarca/1" className="block px-4 py-2 hover:bg-gray-100">Catamarca</Link>
-                                        <Link href="/noticias/Jujuy/1" className="block px-4 py-2 hover:bg-gray-100">Jujuy</Link>
-                                        <Link href="/noticias/Cordoba/1" className="block px-4 py-2 hover:bg-gray-100">Córdoba</Link>
-                                        <Link href="/noticias/La Rioja/1" className="block px-4 py-2 hover:bg-gray-100">La Rioja</Link>
-                                        <Link href="/noticias/Salta/1" className="block px-4 py-2 hover:bg-gray-100">Salta</Link>
-                                        <Link href="/noticias/Santiago del Estero/1" className="block px-4 py-2 hover:bg-gray-100">Santiago del Estero</Link>
-                                        <Link href="/noticias/Tucuman/1" className="block px-4 py-2 hover:bg-gray-100">Tucumán</Link>
-                                        <Link href="/noticias/Chaco/1" className="block px-4 py-2 hover:bg-gray-100">Chaco</Link>
-                                        <Link href="/noticias/Chubut/1" className="block px-4 py-2 hover:bg-gray-100">Chubut</Link>
-                                        <Link href="/noticias/Corrientes/1" className="block px-4 py-2 hover:bg-gray-100">Corrientes</Link>
-                                        <Link href="/noticias/Entre Rios/1" className="block px-4 py-2 hover:bg-gray-100">Entre Ríos</Link>
-                                        <Link href="/noticias/Formosa/1" className="block px-4 py-2 hover:bg-gray-100">Formosa</Link>
-                                        <Link href="/noticias/La Pampa/1" className="block px-4 py-2 hover:bg-gray-100">La Pampa</Link>
-                                        <Link href="/noticias/Mendoza/1" className="block px-4 py-2 hover:bg-gray-100">Mendoza</Link>
-                                        <Link href="/noticias/Misiones/1" className="block px-4 py-2 hover:bg-gray-100">Misiones</Link>
-                                        <Link href="/noticias/Neuquen/1" className="block px-4 py-2 hover:bg-gray-100">Neuquén</Link>
-                                        <Link href="/noticias/Rio Negro/1" className="block px-4 py-2 hover:bg-gray-100">Río Negro</Link>
-                                        <Link href="/noticias/San Juan/1" className="block px-4 py-2 hover:bg-gray-100">San Juan</Link>
-                                        <Link href="/noticias/San Luis/1" className="block px-4 py-2 hover:bg-gray-100">San Luis</Link>
-                                        <Link href="/noticias/Santa Cruz/1" className="block px-4 py-2 hover:bg-gray-100">Santa Cruz</Link>
-                                        <Link href="/noticias/Tierra del Fuego/1" className="block px-4 py-2 hover:bg-gray-100">Tierra del Fuego</Link>
+                                        <Link href="/noticias/buenos-aires/1" className="block px-4 py-2 hover:bg-gray-100">Buenos Aires</Link>
+                                        <Link href="/noticias/capital-federal/1" className="block px-4 py-2 hover:bg-gray-100">Capital Federal</Link>
+                                        <Link href="/noticias/catamarca/1" className="block px-4 py-2 hover:bg-gray-100">Catamarca</Link>
+                                        <Link href="/noticias/jujuy/1" className="block px-4 py-2 hover:bg-gray-100">Jujuy</Link>
+                                        <Link href="/noticias/cordoba/1" className="block px-4 py-2 hover:bg-gray-100">Córdoba</Link>
+                                        <Link href="/noticias/la-rioja/1" className="block px-4 py-2 hover:bg-gray-100">La Rioja</Link>
+                                        <Link href="/noticias/salta/1" className="block px-4 py-2 hover:bg-gray-100">Salta</Link>
+                                        <Link href="/noticias/santiago-del-estero/1" className="block px-4 py-2 hover:bg-gray-100">Santiago del Estero</Link>
+                                        <Link href="/noticias/tucuman/1" className="block px-4 py-2 hover:bg-gray-100">Tucumán</Link>
+                                        <Link href="/noticias/chaco/1" className="block px-4 py-2 hover:bg-gray-100">Chaco</Link>
+                                        <Link href="/noticias/chubut/1" className="block px-4 py-2 hover:bg-gray-100">Chubut</Link>
+                                        <Link href="/noticias/corrientes/1" className="block px-4 py-2 hover:bg-gray-100">Corrientes</Link>
+                                        <Link href="/noticias/entre-rios/1" className="block px-4 py-2 hover:bg-gray-100">Entre Ríos</Link>
+                                        <Link href="/noticias/formosa/1" className="block px-4 py-2 hover:bg-gray-100">Formosa</Link>
+                                        <Link href="/noticias/la-pampa/1" className="block px-4 py-2 hover:bg-gray-100">La Pampa</Link>
+                                        <Link href="/noticias/mendoza/1" className="block px-4 py-2 hover:bg-gray-100">Mendoza</Link>
+                                        <Link href="/noticias/misiones/1" className="block px-4 py-2 hover:bg-gray-100">Misiones</Link>
+                                        <Link href="/noticias/neuquen/1" className="block px-4 py-2 hover:bg-gray-100">Neuquén</Link>
+                                        <Link href="/noticias/rio-negro/1" className="block px-4 py-2 hover:bg-gray-100">Río Negro</Link>
+                                        <Link href="/noticias/san-juan/1" className="block px-4 py-2 hover:bg-gray-100">San Juan</Link>
+                                        <Link href="/noticias/san-luis/1" className="block px-4 py-2 hover:bg-gray-100">San Luis</Link>
+                                        <Link href="/noticias/santa-cruz/1" className="block px-4 py-2 hover:bg-gray-100">Santa Cruz</Link>
+                                        <Link href="/noticias/tierra-del-fuego/1" className="block px-4 py-2 hover:bg-gray-100">Tierra del Fuego</Link>
                                     </div>
 
                                 )}

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/${p.id}`, {
+    const res = await fetch(`http://localhost:4001/api/noticia/slug/${p.slug}`, {
       cache: 'no-store'
     });
 
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     }
 
     const data = await res.json();
-    const noticia = data.noticia[0];
+    const noticia = data.noticia;
 
     if (!noticia) {
       return {
@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }) {
 
   const p = await params
   try {
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/${p.id}`, {
+    const res = await fetch(`http://localhost:4001/api/noticia/slug/${p.slug}`, {
       // cache: 'no-store' // opcional si querés evitar cache
     });
 
@@ -82,7 +82,7 @@ export default async function ArticlePage({ params }) {
     }
 
     const data = await res.json();
-    const noticia = data.noticia[0];
+    const noticia = data.noticia;
 
     function convertirFecha(fecha) {
       // Obtenemos el nombre del día de la semana

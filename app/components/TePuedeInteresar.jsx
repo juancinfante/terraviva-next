@@ -5,7 +5,7 @@ import Title from './Title'
 export default async function TePuedeInteresar() {
     try {
         // Fetch noticias
-        const noticiasRes = await fetch("https://terraviva-api-new.vercel.app/api/noticias/6/1", {
+        const noticiasRes = await fetch("http://localhost:4001/api/noticias/6/1", {
             // cache: 'no-store'
         });
         console.log(noticiasRes)

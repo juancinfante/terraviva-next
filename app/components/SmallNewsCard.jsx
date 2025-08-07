@@ -3,7 +3,7 @@ import OptimizedImage from "./OptimizedImage";
 
 export default function SmallNewsCard({ noticia }) {
   return (
-    <Link href={`/noticia/${noticia._id}`} className="h-full">
+    <Link href={`/noticia/${noticia.slugTitulo}`} className="h-full">
     <div className="flex flex-col bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
       <div className="relative">
         {/* <img src={noticia.img_portada} alt={noticia.titulo} className="w-full h-55 object-cover" /> */}

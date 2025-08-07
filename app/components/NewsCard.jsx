@@ -3,7 +3,7 @@ import OptimizedImage from "./OptimizedImage";
 
 export default function NewsCard({ noticia, extraClass = "" }) {
   return (
-    <Link href={`/noticia/${noticia._id}`} className="h-full">
+    <Link href={`/noticia/${noticia.slugTitulo}`} className="h-full">
     <div className={`relative w-full h-60 md:h-full overflow-hidden ${extraClass}`}>
         <OptimizedImage
                     url={noticia.img_portada}

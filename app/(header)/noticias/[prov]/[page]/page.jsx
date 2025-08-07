@@ -6,7 +6,6 @@ import OptimizedImage from "../../../../components/OptimizedImage";
 export async function generateMetadata({ params }) {
   try {
     const p = await params;
-    console.log(p.prov)
     
     if (!p.prov) {
       return {
@@ -51,7 +50,7 @@ export default async function page({ params }) {
   let data = {};
 
   try {
-    let res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${p.prov}/${limit}/${p.page}`, {
+    let res = await fetch(`http://localhost:4001/api/noticias/${p.prov}/${limit}/${p.page}`, {
       cache: 'no-store'
     });
 
@@ -68,11 +67,11 @@ export default async function page({ params }) {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
-      <Title title={decodeURIComponent(p.prov)} />
+      <Title title={noticias[0].provincia} />
       <div className="flex flex-col gap-4 md:col-span-3">
         {/* Listado de noticias */}
         {noticias.map((n, index) => (
-          <Link href={`/noticia/${n._id}`} key={n._id || index}>
+          <Link href={`/noticia/${n.slugTitulo}`} key={n._id || index}>
             <div className="flex gap-4 bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <OptimizedImage
                 url={n.img_portada}
