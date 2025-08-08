@@ -1,6 +1,9 @@
 import AsidePub from '../../../../components/AsidePub'
 import OptimizedImage from '../../../../components/OptimizedImage'
 import Title from '../../../../components/Title'
+import BotonCompartirFacebook from '../../../../components/BotonCompartirFacebook';
+import BotonCompartirWhatsApp from '../../../../components/BotonCompartirWhatsapp';
+import BotonCompartirX from '../../../../components/BotonCompartirX';
 
 export async function generateMetadata({ params }) {
   try {
@@ -96,6 +99,13 @@ export default async function page({ params }) {
 
     return (
       <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 gap-4">
+        {/* Botones compartir */}
+        <div className="flex w-full items-center justify-end space-x-2 mt-4">
+          {/* <h1 className='text-[#333]'>Compartir</h1> */}
+          <BotonCompartirFacebook url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
+          <BotonCompartirWhatsApp url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
+          <BotonCompartirX url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
+        </div>
         <Title title="Evento" />
 
         <div className="mt-4 md:mt-0 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
