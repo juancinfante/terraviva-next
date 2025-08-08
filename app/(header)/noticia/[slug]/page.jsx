@@ -140,9 +140,9 @@ export default async function ArticlePage({ params }) {
           {/* Botones compartir */}
           <div className="flex w-full items-center justify-end space-x-2 mt-4">
             {/* <h1 className='text-[#333]'>Compartir</h1> */}
-            <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
+            {/* <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
             <BotonCompartirWhatsApp url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
-            <BotonCompartirX url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
+            <BotonCompartirX url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/> */}
           </div>
           {/* Texto de la nota */}
           <div className="space-y-4 text-gray-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: noticia.texto }}>
