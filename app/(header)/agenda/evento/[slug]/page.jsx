@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/eventos/${p.slug}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/eventos/${p.slugTitulo}`, {
       cache: 'no-store'
     });
 

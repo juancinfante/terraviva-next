@@ -7,7 +7,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/slug/${p.slug}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/slug/${p.slugTitulo}`, {
       cache: 'no-store'
     });
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
         description: "Galería de imágenes.",
         images: [
           {
-            url: galeria.fotos,
+            url: galeria.fotos[0],
             width: 1200,
             height: 630,
             alt: `Imagen de ${galeria.nombre}`,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: galeria.nombre,
         description: "Galería de imágenes.",
-        images: galeria.fotos,
+        images: galeria.fotos[0],
       },
     };
   } catch (error) {
