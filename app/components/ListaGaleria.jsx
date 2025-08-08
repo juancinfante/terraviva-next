@@ -85,7 +85,7 @@ export default function ListaGaleria({ initialData, initialHasNext, initialPage,
     const fetchMore = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`https://terraviva-api-new.vercel.app/api/albums/${limit}/${page}`);
+        const res = await fetch(`http://localhost:4001/api/albums/${limit}/${page}`);
         const data = await res.json();
         setEventos(prev => [...prev, ...data.albums.docs]);
         setHasNext(data.albums.hasNextPage);

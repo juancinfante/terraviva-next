@@ -50,24 +50,34 @@ export default async function page({ params }) {
   let data = {};
 
   try {
-    let res = await fetch(`http://localhost:4001/api/noticias/${p.prov}/${limit}/${p.page}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${p.prov}/${limit}/${p.page}`, {
       cache: 'no-store'
     });
 
     if (!res.ok) throw new Error("Error al obtener noticias");
 
     const json = await res.json();
-    noticias = json.docs;
-    data = json; // por si necesitás totalPages, etc.
+    noticias = json.docs || [];
+    data = json; // totalPages, hasPrevPage, etc.
 
   } catch (error) {
     console.error(error);
     return <p className="text-center">Error al cargar noticias.</p>;
   }
 
+  if (!noticias.length) {
+    return (
+      <div className="container mx-auto max-w-4xl px-4 py-6 text-center">
+        <h1 className="text-2xl font-semibold text-black">No hay noticias disponibles.</h1>
+        <p className="text-gray-600 mt-2">Volvé más tarde o probá con otra provincia.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
-      <Title title={noticias[0].provincia} />
+      <Title title={noticias[0]?.provincia || 'Noticias'} />
+
       <div className="flex flex-col gap-4 md:col-span-3">
         {/* Listado de noticias */}
         {noticias.map((n, index) => (
@@ -94,15 +104,17 @@ export default async function page({ params }) {
           {data.hasPrevPage ?
             <Link href={`/noticias/${p.prov}/${(parseInt(p.page) - 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&lt;</Link>
             :
-            <Link href="" className="px-2 py-1 border rounded text-gray-700 bg-gray-400 pointer-events-none">&lt;</Link>}
+            <span className="px-2 py-1 border rounded text-gray-700 bg-gray-400 pointer-events-none">&lt;</span>}
           <span className="px-3 py-1 bg-red-700 text-white rounded">{p.page}</span>
           {data.hasNextPage ?
             <Link href={`/noticias/${p.prov}/${(parseInt(p.page) + 1)}`} className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-100">&gt;</Link>
             :
-            <Link href="" className="px-2 py-1 border rounded text-gray-700 hover:bg-gray-400 pointer-events-none">&gt;</Link>}
+            <span className="px-2 py-1 border rounded text-gray-700 bg-gray-400 pointer-events-none">&gt;</span>}
         </div>
       </div>
+
       <AsidePub />
     </div>
   );
 }
+

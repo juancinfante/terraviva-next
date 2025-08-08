@@ -7,7 +7,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/${p.id}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/slug/${p.slug}`, {
       cache: 'no-store'
     });
 
@@ -18,32 +18,32 @@ export async function generateMetadata({ params }) {
   const album = await res.json();
   const galeria = album.album ?? [];
 
-    if (!galeria[0]) {
+    if (!galeria) {
       return {
         title: 'galeria no encontrada',
         description: 'No pudimos encontrar la galeria solicitada.',
       };
     }
     return {
-      title: galeria[0].nombre,
+      title: galeria.nombre,
       description: "Galería de imágenes.",
       openGraph: {
-        title: galeria[0].nombre,
+        title: galeria.nombre,
         description: "Galería de imágenes.",
         images: [
           {
-            url: galeria[0].fotos[0],
+            url: galeria.fotos,
             width: 1200,
             height: 630,
-            alt: `Imagen de ${galeria[0].nombre}`,
+            alt: `Imagen de ${galeria.nombre}`,
           },
         ],
       },
       twitter: {
         card: 'summary_large_image',
-        title: galeria[0].nombre,
+        title: galeria.nombre,
         description: "Galería de imágenes.",
-        images: galeria[0].fotos[0],
+        images: galeria.fotos,
       },
     };
   } catch (error) {
@@ -56,17 +56,17 @@ export async function generateMetadata({ params }) {
 
 export default async function AlbumPage({ params }) {
   const p = await params;
-  const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/${p.id}`, { cache: 'no-store' });
+  const res = await fetch(`https://terraviva-api-new.vercel.app/api/album/slug/${p.slug}`, { cache: 'no-store' });
   const album = await res.json();
   const galeria = album.album ?? [];
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 flex flex-col gap-4">
       <Title title="Álbum"/>
       <div className="md:col-span-3">
-        <h1 className="text-2xl font-bold mb-1 mt-2 text-[#333]">{galeria[0].nombre}</h1>
-        <p className="text-gray-600 mb-2">{new Date(galeria[0].fecha).toLocaleDateString("es-AR", { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
-        <p className="text-gray-600 mb-4">PH: {galeria[0].ph}</p>
-        <AlbumSlider images={galeria[0].fotos} />
+        <h1 className="text-2xl font-bold mb-1 mt-2 text-[#333]">{galeria.nombre}</h1>
+        <p className="text-gray-600 mb-2">{new Date(galeria.fecha).toLocaleDateString("es-AR", { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
+        <p className="text-gray-600 mb-4">PH: {galeria.ph}</p>
+        <AlbumSlider images={galeria.fotos} />
       </div>
       <AsidePub />
     </div>

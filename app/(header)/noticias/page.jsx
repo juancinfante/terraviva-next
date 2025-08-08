@@ -46,12 +46,12 @@ export default async function page({ searchParams }) {
 
     if (b) {
       // Si hay búsqueda, usamos endpoint de búsqueda
-      res = await fetch(`http://localhost:4001/api/noticia/b/${b}/${limit}/${page}`, {
+      res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/b/${b}/${limit}/${page}`, {
         cache: 'no-store'
       });
     } else {
       // Si no, traemos las noticias normales
-      res = await fetch(`http://localhost:4001/api/noticias/${limit}/${page}`, {
+      res = await fetch(`https://terraviva-api-new.vercel.app/api/noticias/${limit}/${page}`, {
         cache: 'no-store'
       });
     };

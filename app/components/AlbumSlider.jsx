@@ -8,6 +8,7 @@ import 'swiper/css/thumbs';
 import 'swiper/css/free-mode';
 
 export default function AlbumSlider({ images }) {
+  console.log(images)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (

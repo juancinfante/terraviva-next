@@ -36,12 +36,6 @@ export async function generateMetadata ({ params }) {
 export default async function page({ params }) {
   try {
     const p = await params;
-    // Fetch noticias
-    const eventos = await fetch("https://terraviva-api-new.vercel.app/api/eventos/1/1", {
-      // cache: 'no-store'
-    });
-    const eventosData = await eventos.json();
-    const event = eventosData ?? [];
 
     return (
       <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 gap-4">

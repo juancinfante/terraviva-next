@@ -6,7 +6,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/evento/${p.id}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/eventos/${p.slug}`, {
       cache: 'no-store'
     });
 
@@ -83,7 +83,7 @@ export default async function page({ params }) {
 
   const p = await params
   try {
-    const res = await fetch(`https://terraviva-api-new.vercel.app/api/evento/${p.id}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/eventos/${p.slug}`, {
       // cache: 'no-store' // opcional si querés evitar cache
     });
 
@@ -92,7 +92,7 @@ export default async function page({ params }) {
     }
 
     const data = await res.json();
-    const evento = data.evento[0];
+    const evento = data.evento;
 
     return (
       <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 gap-4">
@@ -138,6 +138,14 @@ export default async function page({ params }) {
               <img src="/date-svgrepo-com.svg" className='w-5' alt="" />
               <p className='font-semibold'>{evento.direccion}</p>
             </span>
+            <iframe
+              className='mb-10'
+              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_EMBED_API_KEY}&q=${encodeURI(evento.direccion)}`}
+              style={{ height: "400px", width: "100%" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
         <AsidePub />

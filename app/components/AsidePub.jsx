@@ -31,7 +31,7 @@ export default async function AsidePub() {
             <aside className="flex flex-col gap-4">
                 {publicidadesInicio.map((publi, idx) => (
                     <div key={publi._id || idx} className="bg-gray-100 rounded overflow-hidden">
-                        <a href={publi.url} target="_blank" rel="noreferrer">
+                        <a href={publi.link} target="_blank" rel="noreferrer">
                             <OptimizedImage
                               url={publi.foto}
                               alt={publi.titulo}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import CardAgenda from "./CardAgenda";
 
 export default function ListaEventos({ provincia }) {
+  console.log(provincia)
   const [eventos, setEventos] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -14,45 +15,39 @@ export default function ListaEventos({ provincia }) {
   }, [page]);
 
   const cargarEventos = async (pageNumber) => {
-  if (loading) return; // evitar llamadas dobles
-  try {
-    setLoading(true);
+    if (loading) return; // evitar llamadas dobles
+    try {
+      setLoading(true);
 
-    let url = "";
-    if (provincia !== "") {
-      // Des-slugear: "san-luis" → "San Luis"
-      const nombreProvincia = provincia
-        .split('-')
-        .map(p => p.charAt(0).toUpperCase() + p.slice(1)) // Capitalizar cada palabra
-        .join(' ');
-      
-      url = `https://terraviva-api-new.vercel.app/api/eventos/${encodeURIComponent(nombreProvincia)}/${limit}/${pageNumber}`;
-    } else {
-      url = `https://terraviva-api-new.vercel.app/api/eventos/${limit}/${pageNumber}`;
+      let url = "";
+      if (provincia !== "") {
+        url = `https://terraviva-api-new.vercel.app/api/eventos/${provincia}/${limit}/${pageNumber}`;
+      } else {
+        url = `https://terraviva-api-new.vercel.app/api/eventos/${limit}/${pageNumber}`;
+      }
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const nuevosEventos = data.docs || data.eventos?.docs || [];
+
+      // Si no vienen nuevos eventos, no hay más para cargar
+      if (nuevosEventos.length === 0) {
+        setHasMore(false);
+        return;
+      }
+
+      setEventos((prev) => {
+        const todos = [...prev, ...nuevosEventos];
+        const unicos = Array.from(new Map(todos.map(item => [item._id, item])).values());
+        return unicos;
+      });
+    } catch (error) {
+      console.error("Error cargando eventos:", error);
+    } finally {
+      setLoading(false);
     }
-
-    const res = await fetch(url);
-    const data = await res.json();
-
-    const nuevosEventos = data.docs || data.eventos?.docs || [];
-
-    // Si no vienen nuevos eventos, no hay más para cargar
-    if (nuevosEventos.length === 0) {
-      setHasMore(false);
-      return;
-    }
-
-    setEventos((prev) => {
-      const todos = [...prev, ...nuevosEventos];
-      const unicos = Array.from(new Map(todos.map(item => [item._id, item])).values());
-      return unicos;
-    });
-  } catch (error) {
-    console.error("Error cargando eventos:", error);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   // Detectar scroll para hacer carga automática
   useEffect(() => {
@@ -74,16 +69,23 @@ export default function ListaEventos({ provincia }) {
 
   return (
     <>
-      <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-        {eventos.map((n) => (
-          <CardAgenda key={n._id} evento={n} />
-        ))}
-      </div>
+      {eventos.length === 0 ? (
+        <div className="text-center col-span-full py-10">
+          <h2 className="text-xl text-gray-600">No hay eventos disponibles por el momento.</h2>
+        </div>
+      ) : (
+        <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          {eventos.map((n) => (
+            <CardAgenda key={n._id} evento={n} />
+          ))}
+        </div>
+      )}
+
       <div className="text-center mt-4">
-        {/* Opcional: mostrar un texto o spinner cuando carga */}
-        {loading && <p>Cargando...</p>}
-        {/* Opcional: mensaje cuando no quedan más */}
-        {!hasMore && <p>No hay más eventos para cargar.</p>}
+        {loading && <p className="text-gray-500">Cargando...</p>}
+        {!hasMore && eventos.length > 0 && (
+          <h1 className="text-black text-center text-2xl">No hay más eventos próximos.</h1>
+        )}
       </div>
     </>
   );

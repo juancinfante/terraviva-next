@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   try {
     const p = await params;
 
-    const res = await fetch(`http://localhost:4001/api/noticia/slug/${p.slug}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/slug/${p.slug}`, {
       cache: 'no-store'
     });
 
@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }) {
 
   const p = await params
   try {
-    const res = await fetch(`http://localhost:4001/api/noticia/slug/${p.slug}`, {
+    const res = await fetch(`https://terraviva-api-new.vercel.app/api/noticia/slug/${p.slug}`, {
       // cache: 'no-store' // opcional si querés evitar cache
     });
 
