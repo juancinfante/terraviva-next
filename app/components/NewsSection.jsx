@@ -2,7 +2,7 @@ import NewsCard from "./NewsCard";
 
 export default async function NewsSection() {
   try {
-    const res = await fetch("http://localhost:4001/api/noticias/5/1", {
+    const res = await fetch("https://terraviva-api-new.vercel.app/api/noticias/5/1", {
       // cache: 'no-store'
     });
     if (!res.ok) throw new Error("Error al obtener noticias");
