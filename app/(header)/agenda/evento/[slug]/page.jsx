@@ -99,13 +99,7 @@ export default async function page({ params }) {
 
     return (
       <div className="container mx-auto max-w-7xl px-4 py-6 md:grid md:grid-cols-4 gap-4">
-        {/* Botones compartir */}
-        <div className="flex w-full items-center justify-end space-x-2 mt-4">
-          {/* <h1 className='text-[#333]'>Compartir</h1> */}
-          <BotonCompartirFacebook url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
-          <BotonCompartirWhatsApp url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
-          <BotonCompartirX url={`https://terraviva-next.vercel.app/noticia/${noticia._id}`} />
-        </div>
+
         <Title title="Evento" />
 
         <div className="mt-4 md:mt-0 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -131,7 +125,13 @@ export default async function page({ params }) {
               />
             </div>
           </div>
-
+          {/* Botones compartir */}
+          <div className="flex w-full justify-end space-x-2 mt-4 col-span-3">
+            {/* <h1 className='text-[#333]'>Compartir</h1> */}
+            <BotonCompartirFacebook url={`https://terraviva-next.vercel.app/noticia/${evento._id}`} />
+            <BotonCompartirWhatsApp url={`https://terraviva-next.vercel.app/noticia/${evento._id}`} />
+            <BotonCompartirX url={`https://terraviva-next.vercel.app/noticia/${evento._id}`} />
+          </div>
 
           {/* Detalle */}
           <div className="md:col-span-3 flex flex-col justify-between text-[#333333]">
