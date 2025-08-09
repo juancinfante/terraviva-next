@@ -20,7 +20,6 @@
 }
 
 body {
-  background: var(--foreground);
   color: var(--foreground);
   font-family: var(--font-roboto);
 }
