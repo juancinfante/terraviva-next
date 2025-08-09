@@ -12,7 +12,7 @@ const HeaderAgenda = ({ provincia }) => {
         .join(' ');
 
     const provincias = [
-        "Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes",
+        "Todas", "Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes",
         "Entre Rios", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza",
         "Misiones", "Neuquen", "Rio Negro", "Salta", "San Juan", "San Luis",
         "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucuman"
@@ -63,8 +63,12 @@ const HeaderAgenda = ({ provincia }) => {
                             {provincias.map((provincia) => (
                                 <li key={provincia}>
                                     <Link
-                                        href={`/agenda/${encodeURIComponent(provincia.toLowerCase().replace(/\s+/g, '-'))}`}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                        href={
+                                            provincia === "Todas"
+                                                ? "/agenda"
+                                                : `/agenda/${encodeURIComponent(provincia.toLowerCase().replace(/\s+/g, '-'))}`
+    }                                   
+                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                     >
                                         {provincia}
                                     </Link>
