@@ -4,6 +4,7 @@ import Title from '../../../../components/Title'
 import BotonCompartirFacebook from '../../../../components/BotonCompartirFacebook';
 import BotonCompartirWhatsApp from '../../../../components/BotonCompartirWhatsapp';
 import BotonCompartirX from '../../../../components/BotonCompartirX';
+import { buildCloudinaryUrl } from '../../../../utils/utils';
 
 export async function generateMetadata({ params }) {
   try {
