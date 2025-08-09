@@ -41,7 +41,9 @@ export async function generateMetadata({ params }) {
         description: descripcionLimpia,
         images: [
           {
-            url: evento.flayer,
+            url: buildCloudinaryUrl(evento.flayer, {
+                          width: 1100,
+                          height: 567}),
             width: 1200,
             height: 630,
             alt: `Imagen de ${evento.titulo}`,

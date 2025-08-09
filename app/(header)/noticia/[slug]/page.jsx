@@ -5,6 +5,7 @@ import BotonCompartirWhatsApp from '../../../components/BotonCompartirWhatsapp';
 import BotonCompartirX from '../../../components/BotonCompartirX';
 import TePuedeInteresar from '../../../components/TePuedeInteresar';
 import OptimizedImage from '../../../components/OptimizedImage';
+import { buildCloudinaryUrl } from '../../../utils/utils';
 
 
 export async function generateMetadata({ params }) {
@@ -45,7 +46,9 @@ export async function generateMetadata({ params }) {
         description: descripcionLimpia,
         images: [
           {
-            url: noticia.img_portada,
+            url: buildCloudinaryUrl(noticia.img_portada, {
+              width: 1100,
+              height: 567}),
             width: 1200,
             height: 630,
             alt: `Imagen de ${noticia.titulo}`,
@@ -132,8 +135,8 @@ export default async function ArticlePage({ params }) {
                 url={noticia.img_portada}
                 alt={noticia.titulo}
                 crop="fill"
-                height={580}
-                width={960}
+                height={567}
+                width={1100}
                 className="w-full object-cover"
               />
             </div>

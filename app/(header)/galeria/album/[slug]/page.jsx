@@ -34,7 +34,9 @@ export async function generateMetadata({ params }) {
         description: "Galería de imágenes.",
         images: [
           {
-            url: galeria.fotos[0],
+            url: buildCloudinaryUrl(galeria.fotos[0], {
+                          width: 1100,
+                          height: 567}),
             width: 1200,
             height: 630,
             alt: `Imagen de ${galeria.nombre}`,
