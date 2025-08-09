@@ -43,7 +43,7 @@ export default async function GaleriasPage() {
           <ListaGaleria initialData={data.albums.docs} initialHasNext={data.albums.hasNextPage} initialPage={page} limit={limit} />
         </div>
       </div>
-      <AsidePub />
+      <AsidePub seccion="galeria"/>
     </div>
   );
 }

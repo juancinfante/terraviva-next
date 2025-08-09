@@ -26,7 +26,7 @@ export default async function MoreNewsSection() {
                 </div>
 
                 {/* Aside derecho para publicidad + redes */}
-                <AsidePub />
+                <AsidePub seccion="inicio"/>
             </div>
         );
     } catch (error) {

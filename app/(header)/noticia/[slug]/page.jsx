@@ -156,7 +156,7 @@ export default async function ArticlePage({ params }) {
 
           {/* Aside de publicidad y redes (lo mantienes como ya tienes) */}
           <aside className="col-span-12 md:col-span-1">
-            <AsidePub />
+            <AsidePub seccion="noticias"/>
           </aside>
         </div>
         <TePuedeInteresar />

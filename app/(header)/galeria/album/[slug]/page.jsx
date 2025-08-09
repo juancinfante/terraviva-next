@@ -80,7 +80,7 @@ export default async function AlbumPage({ params }) {
           <BotonCompartirX url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} />
         </div>
       </div>
-      <AsidePub />
+      <AsidePub seccion="galeria"/>
     </div>
   );
 }

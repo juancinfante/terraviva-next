@@ -33,6 +33,7 @@ export async function generateMetadata({ params }) {
     const descripcionLimpia = evento.texto
       ? stripHtml(evento.texto).slice(0, 160)
       : "Descripción no disponible.";
+      
 
     return {
       title: evento.titulo,
@@ -85,7 +86,14 @@ export default async function page({ params }) {
   }
 
   // Función para quitar HTML si quisieras usar 'texto'
-  const stripHtml = (html) => (html || "").replace(/<[^>]*>?/gm, '').trim();
+  const stripHtmlExceptLinks = (html) => {
+  if (!html) return "";
+  // Elimina todas las etiquetas menos <a ...> y </a>
+  return html.replace(/<(?!\/?a\b)[^>]*>/gi, '').trim();
+};
+
+    const stripHtml = (html) => (html || "").replace(/<[^>]*>?/gm, '').trim();
+
 
   const p = await params
   try {
@@ -134,7 +142,10 @@ export default async function page({ params }) {
           <div className="md:col-span-3 flex flex-col justify-between text-[#333333]">
             <h1 className="text-4xl font-bold w-full col-span-4 text-[#333333] mb-10">{evento.titulo}</h1>
             <h1 className='text-xl font-extrabold'>Sobre este evento:</h1>
-            <p className='mb-7'>{stripHtml(evento.texto)}</p>
+            {/* <p className="mb-7" dangerouslySetInnerHTML={{ __html: stripHtmlExceptLinks(evento.texto) }} /> */}
+            <div className="space-y-4 text-gray-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: evento.texto }}>
+            </div>
+            
             <h1 className='text-xl font-extrabold'>Fecha y horario:</h1>
             <span className='flex mb-7 gap-2'>
               <img src="/location-svgrepo-com.svg" className='w-5' alt="" />
@@ -162,7 +173,7 @@ export default async function page({ params }) {
             </div>
           </div>
         </div>
-        <AsidePub />
+        <AsidePub seccion="agenda"/>
       </div>
     );
   } catch (error) {
