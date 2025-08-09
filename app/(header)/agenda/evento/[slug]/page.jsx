@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     }
 
     const data = await res.json();
-    const evento = data.evento[0];
+    const evento = data.evento;
 
     if (!evento) {
       return {
