@@ -156,9 +156,9 @@ export default async function page({ params }) {
             {/* Botones compartir */}
             <div className="flex w-full items-center  justify-end space-x-2 mb-6 col-span-3">
               <h1 className='text-[#333c] text-[14px]'>Compartir evento:</h1>
-              <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
-              <BotonCompartirWhatsApp url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
-              <BotonCompartirX url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
+              <BotonCompartirFacebook url={`https://terraviva.com.ar/agenda/evento/${evento.slugTitulo}`} />
+              <BotonCompartirWhatsApp url={`https://terraviva.com.ar/agenda/evento/${evento.slugTitulo}`} />
+              <BotonCompartirX url={`https://terraviva.com.ar/agenda/evento/${evento.slugTitulo}`} />
             </div>
           </div>
         </div>
