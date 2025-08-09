@@ -71,10 +71,10 @@ export default async function AlbumPage({ params }) {
         <AlbumSlider images={galeria.fotos} />
         {/* Botones compartir */}
         <div className="flex w-full items-center justify-start space-x-2 mt-2 mb-2">
-          {/* <h1 className='text-[#333]'>Compartir</h1> */}
-          {/* <BotonCompartirFacebook url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} />
+          <h1 className='text-[#333c] text-[14px]'>Compartir album:</h1>
+          <BotonCompartirFacebook url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} />
           <BotonCompartirWhatsApp url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} />
-          <BotonCompartirX url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} /> */}
+          <BotonCompartirX url={`https://terraviva.com.ar/galeria/album/${galeria.slugTitulo}`} />
         </div>
       </div>
       <AsidePub />

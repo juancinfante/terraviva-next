@@ -6,7 +6,7 @@ import OptimizedImage from "../../../../components/OptimizedImage";
 export async function generateMetadata({ params }) {
   try {
     const p = await params;
-    
+
     if (!p.prov) {
       return {
         title: 'galeria no encontrada',
@@ -77,25 +77,27 @@ export default async function page({ params }) {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
       <Title title={noticias[0]?.provincia || 'Noticias'} />
-
-      <div className="flex flex-col gap-4 md:col-span-3">
+      <div className="col-span-12 flex flex-col gap-4 md:col-span-3">
         {/* Listado de noticias */}
         {noticias.map((n, index) => (
           <Link href={`/noticia/${n.slugTitulo}`} key={n._id || index}>
-            <div className="flex gap-4 bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col sm:flex-row sm:gap-4">
               <OptimizedImage
                 url={n.img_portada}
                 alt={n.titulo}
                 crop="fill"
-                width={320}
-                height={240}
-                className="object-cover"
+                width={640} // más ancho para mobile
+                height={360}
+                className="object-cover w-full h-48 sm:w-80 sm:h-auto"
               />
-              <div className="w-full">
-                <h2 className="font-semibold leading-tight text-black text-2xl pt-4 hover:underline">{n.titulo}</h2>
-                <p className="text-black text-sm">{n.texto}</p>
+              <div className="p-4 flex flex-col justify-center">
+                <h2 className="font-semibold leading-tight text-black text-lg sm:text-2xl hover:underline">
+                  {n.titulo}
+                </h2>
+                <p className="text-black text-sm mt-2">{n.texto}</p>
               </div>
             </div>
+
           </Link>
         ))}
 
@@ -112,8 +114,9 @@ export default async function page({ params }) {
             <span className="px-2 py-1 border rounded text-gray-700 bg-gray-400 pointer-events-none">&gt;</span>}
         </div>
       </div>
-
-      <AsidePub />
+      <div className="col-span-12 md:col-span-1">
+        <AsidePub />
+      </div>
     </div>
   );
 }

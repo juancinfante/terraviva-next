@@ -125,13 +125,7 @@ export default async function page({ params }) {
               />
             </div>
           </div>
-          {/* Botones compartir */}
-          <div className="flex w-full justify-end space-x-2 mt-4 col-span-3">
-            {/* <h1 className='text-[#333]'>Compartir</h1> */}
-            {/* <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
-            <BotonCompartirWhatsApp url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
-            <BotonCompartirX url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} /> */}
-          </div>
+
 
           {/* Detalle */}
           <div className="md:col-span-3 flex flex-col justify-between text-[#333333]">
@@ -156,6 +150,13 @@ export default async function page({ params }) {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade">
             </iframe>
+            {/* Botones compartir */}
+            <div className="flex w-full items-center  justify-end space-x-2 mb-6 col-span-3">
+              <h1 className='text-[#333c] text-[14px]'>Compartir evento:</h1>
+              <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
+              <BotonCompartirWhatsApp url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
+              <BotonCompartirX url={`https://terraviva.com.ar/noticia/${evento.slugTitulo}`} />
+            </div>
           </div>
         </div>
         <AsidePub />

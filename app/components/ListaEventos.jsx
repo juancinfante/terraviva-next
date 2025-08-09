@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import CardAgenda from "./CardAgenda";
 
 export default function ListaEventos({ provincia }) {
-  console.log(provincia)
   const [eventos, setEventos] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -71,7 +70,7 @@ export default function ListaEventos({ provincia }) {
     <>
       {eventos.length === 0 ? (
         <div className="text-center col-span-full py-10">
-          <h2 className="text-xl text-gray-600">No hay eventos disponibles por el momento.</h2>
+          <h2 className="text-xl text-gray-600">Cargando...</h2>
         </div>
       ) : (
         <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">

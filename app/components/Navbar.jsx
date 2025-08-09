@@ -181,12 +181,35 @@ export default function Navbar() {
                     </button>
                     {dropdownOpen && (
                         <div className="ml-4 flex flex-col gap-1">
-                            <a href="#" className="hover:underline">Todas</a>
-                            <a href="#" className="hover:underline">Buenos Aires</a>
+                            <a href="/noticias" className="hover:underline">Todas</a>
+                            <a href="/noticias/buenos-aires/1" className="hover:underline">Buenos Aires</a>
+                            <a href="/noticias/capital-federal/1" className="hover:underline">Capital Federal</a>
+                            <a href="/noticias/catamarca/1" className="hover:underline">Catamarca</a>
+                            <a href="/noticias/jujuy/1" className="hover:underline">Jujuy</a>
+                            <a href="/noticias/cordoba/1" className="hover:underline">Córdoba</a>
+                            <a href="/noticias/la-rioja/1" className="hover:underline">La Rioja</a>
+                            <a href="/noticias/salta/1" className="hover:underline">Salta</a>
+                            <a href="/noticias/santiago-del-estero/1" className="hover:underline">Santiago del Estero</a>
+                            <a href="/noticias/tucuman/1" className="hover:underline">Tucumán</a>
+                            <a href="/noticias/chaco/1" className="hover:underline">Chaco</a>
+                            <a href="/noticias/chubut/1" className="hover:underline">Chubut</a>
+                            <a href="/noticias/corrientes/1" className="hover:underline">Corrientes</a>
+                            <a href="/noticias/entre-rios/1" className="hover:underline">Entre Ríos</a>
+                            <a href="/noticias/formosa/1" className="hover:underline">Formosa</a>
+                            <a href="/noticias/la-pampa/1" className="hover:underline">La Pampa</a>
+                            <a href="/noticias/mendoza/1" className="hover:underline">Mendoza</a>
+                            <a href="/noticias/misiones/1" className="hover:underline">Misiones</a>
+                            <a href="/noticias/neuquen/1" className="hover:underline">Neuquén</a>
+                            <a href="/noticias/rio-negro/1" className="hover:underline">Río Negro</a>
+                            <a href="/noticias/san-juan/1" className="hover:underline">San Juan</a>
+                            <a href="/noticias/san-luis/1" className="hover:underline">San Luis</a>
+                            <a href="/noticias/santa-cruz/1" className="hover:underline">Santa Cruz</a>
+                            <a href="/noticias/tierra-del-fuego/1" className="hover:underline">Tierra del Fuego</a>
                         </div>
+
                     )}
-                    <a href="#" className="hover:underline ps-3">Agenda</a>
-                    <a href="#" className="hover:underline ps-3">Galería</a>
+                    <a href="/agenda" className="hover:underline ps-3">Agenda</a>
+                    <a href="/galeria" className="hover:underline ps-3">Galería</a>
                     {/* Buscador Mobile*/}
 
                 </nav>

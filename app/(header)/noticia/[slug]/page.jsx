@@ -108,56 +108,56 @@ export default async function ArticlePage({ params }) {
 
     return (
       <>
-      <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Contenido principal de la nota */}
-          <Title title={noticia.provincia}/>
-        <article className="md:col-span-3 space-y-4">
-          {/* Provincia */}
+        <div className="container mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Contenido principal de la nota */}
+          <Title title={noticia.provincia} />
+          <article className="col-span-12 md:col-span-3 space-y-4">
+            {/* Provincia */}
 
-          {/* Título */}
-          <h1 className="text-2xl md:text-4xl font-bold leading-tight text-[#333]">
-            {noticia.titulo}
-          </h1>
+            {/* Título */}
+            <h1 className="text-2xl md:text-4xl font-bold leading-tight text-[#333]">
+              {noticia.titulo}
+            </h1>
 
-          {/* Autor y fecha */}
-          <div className="flex items-center space-x-2">
-            {/* <img src={noticia.fotoEditor} alt={noticia.editor} className='h-8 w-8'/> */}
-            {/* <span>{noticia.editor}</span> */}
-            <span className='text-sm text-[#333]'>{convertirFecha(noticia.created_at)}</span>
-          </div>
+            {/* Autor y fecha */}
+            <div className="flex items-center space-x-2">
+              {/* <img src={noticia.fotoEditor} alt={noticia.editor} className='h-8 w-8'/> */}
+              {/* <span>{noticia.editor}</span> */}
+              <span className='text-sm text-[#333]'>{convertirFecha(noticia.created_at)}</span>
+            </div>
 
-          {/* Imagen principal */}
-          <div className="overflow-hidden rounded">
-            <OptimizedImage
-                    url={noticia.img_portada}
-                    alt={noticia.titulo}
-                    crop="fill"
-                    height={580}
-                    width={960}
-                    className="w-full object-cover"
-                  />
-          </div>
-          {/* Botones compartir */}
-          <div className="flex w-full items-center justify-end space-x-2 mt-4">
-            {/* <h1 className='text-[#333]'>Compartir</h1> */}
-            {/* <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
+            {/* Imagen principal */}
+            <div className="overflow-hidden rounded">
+              <OptimizedImage
+                url={noticia.img_portada}
+                alt={noticia.titulo}
+                crop="fill"
+                height={580}
+                width={960}
+                className="w-full object-cover"
+              />
+            </div>
+            {/* Botones compartir */}
+            <div className="flex w-full items-center justify-end space-x-2 mt-4">
+              <h1 className='text-[#333c] text-[14px]'>Compartir nota:</h1>
+              <BotonCompartirFacebook url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
             <BotonCompartirWhatsApp url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
-            <BotonCompartirX url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/> */}
-          </div>
-          {/* Texto de la nota */}
-          <div className="space-y-4 text-gray-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: noticia.texto }}>
-          </div>
+            <BotonCompartirX url={`https://terraviva.com.ar/noticia/${noticia.slugTitulo}`}/>
+            </div>
+            {/* Texto de la nota */}
+            <div className="space-y-4 text-gray-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: noticia.texto }}>
+            </div>
 
 
-        </article>
+          </article>
 
-        {/* Aside de publicidad y redes (lo mantienes como ya tienes) */}
-        <aside className="flex flex-col gap-4">
-          <AsidePub />
-        </aside>
-      </div>
+          {/* Aside de publicidad y redes (lo mantienes como ya tienes) */}
+          <aside className="col-span-12 md:col-span-1">
+            <AsidePub />
+          </aside>
+        </div>
         <TePuedeInteresar />
-      
+
       </>
     );
   } catch (error) {
