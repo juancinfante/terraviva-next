@@ -6,7 +6,7 @@ export default async function MoreNewsSection() {
     try {
         // Fetch noticias
         const noticiasRes = await fetch("https://terraviva-api-new.vercel.app/api/masnoticias", {
-            // cache: 'no-store'
+            cache: 'no-store'
         });
         const noticiasData = await noticiasRes.json();
         const noticias = noticiasData ?? [];

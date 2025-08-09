@@ -2,7 +2,7 @@ import SocialStats from './SocialStats'
 import OptimizedImage from './OptimizedImage';
 export default async function AsidePub({ seccion }) {
   // Fetch publicidades
-  const publisRes = await fetch("https://terraviva-api-new.vercel.app/api/publis");
+  const publisRes = await fetch("https://terraviva-api-new.vercel.app/api/publis",{ cache: 'no-store' });
   const publisData = await publisRes.json();
   const publis = publisData.publis ?? [];
 
