@@ -45,7 +45,7 @@ export default async function BannerSantiago() {
                 height={130}
                 width={380}
                 className="object-cover w-full max-h-[130px]"
-                banner={true}
+                banner={false}
               />
             </a>
           </div>

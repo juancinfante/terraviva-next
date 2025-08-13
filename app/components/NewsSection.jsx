@@ -17,7 +17,8 @@ export default async function NewsSection() {
       <div className="container mx-auto max-w-7xl px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
           {/* Card grande a la izquierda */}
-          <div className="md:col-span-2 flex flex-col h-full">
+          {/* Card grande solo en desktop (md y superior) */}
+          <div className="hidden md:flex md:col-span-2 flex-col h-full">
             <NewsCard
               noticia={noticias[0]}
               extraClass="h-full"
@@ -25,18 +26,29 @@ export default async function NewsSection() {
               height={500}
             />
           </div>
+
+          {/* Card pequeña solo en mobile (menos de md) */}
+          <div className="flex md:hidden flex-col h-full">
+            <NewsCard
+              noticia={noticias[0]}
+              extraClass="h-full"
+              height={300}
+              width={380}
+            />
+          </div>
+
           {/* Columna derecha con dos cards */}
           <div className="flex flex-col gap-4">
             <NewsCard
               noticia={noticias[1]}
               extraClass="h-full flex-1"
-              height={209}
+              height={300}
               width={380}
             />
             <NewsCard
               noticia={noticias[2]}
               extraClass="h-full flex-1"
-              height={209}
+              height={300}
               width={380}
             />
           </div>
