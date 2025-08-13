@@ -30,16 +30,16 @@ export default function Navbar() {
                     <div className="flex gap-3">
                         {/* iconos */}
                         <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/facebook-svgrepo-com.svg' className="w-4" />
+                            <img src='/facebook-svgrepo-com.svg' className="w-4" alt="Facebook" />
                         </a>
                         <a href="https://www.instagram.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/insta-svgrepo-com.svg' className="w-4" />
+                            <img src='/insta-svgrepo-com.svg' className="w-4" alt="Instagram" />
                         </a>
                         <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer">
-                            <img src='/x-svgrepo-com.svg' className="w-4" />
+                            <img src='/x-svgrepo-com.svg' className="w-4" alt="Twitter" />
                         </a>
                         <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer">
-                            <img src='/youtube-svgrepo-com.svg' className="w-4" />
+                            <img src='/youtube-svgrepo-com.svg' className="w-4" alt="Youtube" />
                         </a>
                     </div>
                 </div>
@@ -118,11 +118,11 @@ export default function Navbar() {
                                 placeholder="Buscar..."
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
-                                className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-xs ps-1"
+                                className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-sm ps-2 py-2 h-8"
                             />
                             <button
                                 type="submit"
-                                className="hover:bg-gray-100 transition"
+                                className="hover:bg-gray-100 transition w-8 h-8 flex items-center justify-center"
                             >
                                 <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
                             </button>
@@ -133,9 +133,10 @@ export default function Navbar() {
                     <button
                         className="md:hidden text-white text-2xl"
                         onClick={() => setSidebarOpen(true)}
+                        aria-label="Abrir menú"
                     >
                         {/* <HiOutlineMenuAlt3 /> */}
-                        <img src='/menu-hamburger-svgrepo-com.svg' className="w-10" />
+                        <img src='/menu-hamburger-svgrepo-com.svg' className="w-10" alt="" />
                     </button>
                 </div>
             </div>
@@ -149,9 +150,10 @@ export default function Navbar() {
                     <button
                         className="text-black text-2xl"
                         onClick={() => setSidebarOpen(false)}
+                        aria-label='Cerrar menú'
                     >
                         {/* <HiOutlineX /> / */}
-                        <img src='/times-xs-svgrepo-com.svg' className="w-4" />
+                        <img src='/times-xs-svgrepo-com.svg' className="w-4" alt="" />
                     </button>
                 </div>
                 <nav className="flex flex-col gap-2 p-4 text-black font-semibold">
@@ -169,8 +171,9 @@ export default function Navbar() {
                         <button
                             type="submit"
                             className="hover:bg-gray-100 transition"
+                            aria-label='Buscar noticias'
                         >
-                            <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
+                            <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" alta="" />
                         </button>
                     </form>
                     <button

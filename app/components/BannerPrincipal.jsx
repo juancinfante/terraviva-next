@@ -1,3 +1,5 @@
+import OptimizedImage from "./OptimizedImage";
+
 // app/components/BannerSantiago.jsx
 export default async function BannerSantiago() {
   try {
@@ -31,13 +33,15 @@ export default async function BannerSantiago() {
         </div>
         {/* Mobile */}
         <div className='container block md:hidden px-4'>
-          <div style={{ width: "100%" }}>
+          <div style={{ width: "100%", minHeight: 130 }}>
             <a href={banner.url} target='_blank' rel='noreferrer'>
-              <img
-                src={banner.bannerMobile}
-                className='w-full mt-4 banner-sgo'
-                style={{ height: 130 }}
-                alt="Banner Santiago Mobile"
+              <OptimizedImage
+                url={banner.bannerMobile}
+                alt="Terraviva, nuestro folclore nuestra gente"
+                crop=""
+                height={130}
+                width={380}
+                className="object-cover w-full max-h-[130px]"
               />
             </a>
           </div>

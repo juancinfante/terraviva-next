@@ -17,7 +17,7 @@ export default function OptimizedImage({ url, alt = '', width, height, crop, cla
 
   return (
     <img
-      loading="lazy"
+      fetchPriority="high"
       decoding="async"
       src={optimizedUrl} 
       alt={alt} 

@@ -21,18 +21,23 @@ export default async function NewsSection() {
             <NewsCard
               noticia={noticias[0]}
               extraClass="h-full"
+              height={236}
+              width={380}
             />
           </div>
-
           {/* Columna derecha con dos cards */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             <NewsCard
               noticia={noticias[1]}
               extraClass="h-full flex-1"
+              height={209}
+              width={380}
             />
             <NewsCard
               noticia={noticias[2]}
               extraClass="h-full flex-1"
+              height={209}
+              width={380}
             />
           </div>
         </div>

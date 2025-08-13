@@ -21,16 +21,16 @@ export default function Footer() {
                 {/* Redes */}
                 <div className="flex gap-2">
                     <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <img src='/facebook-svgrepo-com.svg' className="w-5" />
+                        <img src='/facebook-svgrepo-com.svg' className="w-5" alt="Facebook"/>
                     </a>
                     <a href="https://x.com/terravivanoa" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <img src='/x-svgrepo-com.svg' className="w-5" />
+                        <img src='/x-svgrepo-com.svg' className="w-5" alt="Twitter"/>
                     </a>
                     <a href="https://www.instagram.com/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <img src='/insta-svgrepo-com.svg' className="w-5" />
+                        <img src='/insta-svgrepo-com.svg' className="w-5" alt="Instagram"/>
                     </a>
                     <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <img src='/youtube-svgrepo-com.svg' className="w-5" />
+                        <img src='/youtube-svgrepo-com.svg' className="w-5" alta="Youtube"/>
                     </a>
                 </div>
             </div>

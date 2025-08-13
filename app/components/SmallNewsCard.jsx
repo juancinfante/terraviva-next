@@ -11,8 +11,8 @@ export default function SmallNewsCard({ noticia }) {
                               url={noticia.img_portada}
                               alt={noticia.titulo}
                               crop="fill"
-                              width={400}
-                              height={300}
+                              width={300}
+                              height={250}
                               className="w-full object-cover"
                             />
         <span
@@ -25,9 +25,9 @@ export default function SmallNewsCard({ noticia }) {
         </span>
       </div>
       <div className="p-3 flex-1 flex">
-        <h3 className="text-md p-0 font-semibold text-black line-clamp-3 hover:underline cursor-pointer">
+        <h2 className="text-md p-0 font-semibold text-black line-clamp-3 hover:underline cursor-pointer">
           {noticia.titulo}
-        </h3>
+        </h2>
       </div>
     </div>
     </Link>
