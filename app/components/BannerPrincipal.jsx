@@ -22,11 +22,14 @@ export default async function BannerSantiago() {
         <div className='container max-w-7xl mx-auto px-4 hidden md:block'>
           <div style={{ width: "100%" }}>
             <a href={banner.url} target='_blank' rel='noreferrer'>
-              <img
-                src={banner.bannerFull}
-                className='w-full mt-4 banner-sgo'
-                style={{ height: 120 }}
-                alt="Banner Santiago"
+              <OptimizedImage
+                url={banner.bannerFull}
+                alt="Terraviva, nuestro folclore nuestra gente"
+                crop=""
+                height={150}
+                width={1680}
+                className="object-cover w-full max-h-[130px]"
+                banner={true}
               />
             </a>
           </div>
@@ -42,6 +45,7 @@ export default async function BannerSantiago() {
                 height={130}
                 width={380}
                 className="object-cover w-full max-h-[130px]"
+                banner={true}
               />
             </a>
           </div>

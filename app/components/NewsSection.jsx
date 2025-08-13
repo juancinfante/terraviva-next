@@ -21,8 +21,8 @@ export default async function NewsSection() {
             <NewsCard
               noticia={noticias[0]}
               extraClass="h-full"
-              height={236}
-              width={380}
+              width={800}
+              height={500}
             />
           </div>
           {/* Columna derecha con dos cards */}

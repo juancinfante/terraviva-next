@@ -43,3 +43,22 @@ export function buildCloudinaryUrl(originalUrl, options = {}) {
     return originalUrl; // si falla, devolver original
   }
 }
+
+
+export function getFechaHoy() {
+  const meses = [
+    "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO",
+    "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"
+  ];
+  const diasSemana = [
+    "DOMINGO", "LUNES", "MARTES", "MIÉRCOLES",
+    "JUEVES", "VIERNES", "SÁBADO"
+  ];
+
+  const fecha = new Date();
+  const diaSemana = diasSemana[fecha.getDay()];
+  const dia = String(fecha.getDate()).padStart(2, "0");
+  const mes = meses[fecha.getMonth()];
+
+  return `${diaSemana} ${dia} DE ${mes}`;
+}

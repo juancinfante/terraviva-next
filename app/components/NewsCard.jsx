@@ -9,7 +9,7 @@ export default function NewsCard({ noticia, extraClass = "", height, width }) {
                     url={noticia.img_portada}
                     alt={noticia.titulo}
                     crop="fill"
-                    className="w-full object-cover"
+                    className="w-full h-full object-cover"
                     height={height}
                     width={width}
                   />

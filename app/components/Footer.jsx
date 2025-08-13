@@ -14,6 +14,7 @@ export default function Footer() {
                     // height={}
                     width={180}
                     className="object-cover"
+                    footer={true}
                 />
                 {/* Texto */}
                 <p className="text-center text-sm">Santiago del Estero, Argentina.</p>
@@ -30,7 +31,7 @@ export default function Footer() {
                         <img src='/insta-svgrepo-com.svg' className="w-5" alt="Instagram"/>
                     </a>
                     <a href="https://www.youtube.com/user/terravivafolclore" target="_blank" rel="noopener noreferrer" className="bg-red-600 p-2 rounded hover:bg-red-700">
-                        <img src='/youtube-svgrepo-com.svg' className="w-5" alta="Youtube"/>
+                        <img src='/youtube-svgrepo-com.svg' className="w-5" alt="Youtube"/>
                     </a>
                 </div>
             </div>

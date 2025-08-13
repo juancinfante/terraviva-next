@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import OptimizedImage from './OptimizedImage';
 import { useRouter } from 'next/navigation';
+import { getFechaHoy } from '../utils/utils';
 // import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 // import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'; // Hamburguesa y X
 
@@ -26,7 +27,7 @@ export default function Navbar() {
             {/* Barra superior */}
             <div className="bg-gray-800 text-white text-sm">
                 <div className="container mx-auto max-w-7xl flex justify-between px-4 py-3">
-                    <span>JUEVES 03 DE JULIO, 10.4°c</span>
+                    <span>{getFechaHoy()}</span>
                     <div className="flex gap-3">
                         {/* iconos */}
                         <a href="https://www.facebook.com/terravivafolclore" target="_blank" rel="noopener noreferrer">
@@ -118,13 +119,14 @@ export default function Navbar() {
                                 placeholder="Buscar..."
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
-                                className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-sm ps-2 py-2 h-8"
+                                className="text-gray-800 placeholder-gray-400 focus:outline-none flex-1 text-base rounded w-full"
                             />
                             <button
                                 type="submit"
-                                className="hover:bg-gray-100 transition w-8 h-8 flex items-center justify-center"
+                                className="hover:bg-gray-100 transition w-10 h-10 flex items-center justify-center"
+                                alt="Buscar noticias"
                             >
-                                <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" />
+                                <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" alt="" />
                             </button>
                         </form>
                     </div>
