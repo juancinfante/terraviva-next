@@ -31,13 +31,14 @@ export default async function AsidePub({ seccion }) {
       <aside className="flex flex-col gap-4">
         {publicidadesSeccion.map((publi, idx) => (
           <div key={publi._id || idx} className="bg-gray-100 rounded overflow-hidden">
-            <a href={publi.link} target="_blank" rel="noreferrer">
+            <a href={publi.link} target="_blank" rel="noreferrer" aria-label="Ver agenda de eventos">
               <OptimizedImage
                 url={publi.foto}
                 alt={publi.titulo}
                 width={280}
                 crop="fill"
                 className="w-full object-cover"
+                alta="Agenda"
               />
             </a>
           </div>
