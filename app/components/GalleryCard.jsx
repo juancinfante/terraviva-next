@@ -21,6 +21,7 @@ export default function GalleryCard({ evento }) {
             width={300}
             height={250}
             className="w-full object-cover"
+            galleryCard={true}
           />
         </div>
         <span className="text-xs text-gray-600 mt-2">{formatDate(evento.fecha)}</span>

@@ -12,12 +12,12 @@ import { buildCloudinaryUrl } from "../utils/utils";
  * @param {string} crop - Tipo de crop (ej: 'fill', 'thumb', etc.)
  * @param {string} className - Clases tailwind o CSS extra.
  */
-export default function OptimizedImage({ url, alt = '', width, height, crop, className = '', footer, banner }) {
+export default function OptimizedImage({ url, alt = '', width, height, crop, className = '', footer, banner, galleryCard }) {
   const optimizedUrl = buildCloudinaryUrl(url, { width, height, crop });
 
   return (
     <img
-      fetchPriority={banner ? 'high' : footer ? '': 'high'}
+      fetchPriority={banner || galleryCard ? 'high' : footer ? '': 'high'}
       loading={footer ? 'lazy' : ''}
       decoding="async"
       src={optimizedUrl} 

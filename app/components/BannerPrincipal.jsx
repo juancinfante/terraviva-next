@@ -4,7 +4,8 @@ import OptimizedImage from "./OptimizedImage";
 export default async function BannerSantiago() {
   try {
     const res = await fetch("https://terraviva-api-new.vercel.app/api/get-banner", {
-      cache: 'no-store' // <-- usá esto si querés que siempre sea fresh (sin cache)
+      // cache: 'no-store' // <-- usá esto si querés que siempre sea fresh (sin cache)
+      next: { revalidate: 60 }
     });
 
     if (!res.ok) throw new Error("Error al obtener banners");
