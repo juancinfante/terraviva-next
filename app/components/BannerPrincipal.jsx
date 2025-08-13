@@ -22,10 +22,10 @@ export default async function BannerSantiago() {
         {/* Pantalla grande */}
         <div className='container max-w-7xl mx-auto px-4 hidden md:block'>
           <div style={{ width: "100%" }}>
-            <a href={banner.url} target='_blank' rel='noreferrer'>
+            <a href={banner.url} target='_blank' rel='noreferrer' aria-label="Ver canal de YouTube de Terraviva">
               <OptimizedImage
                 url={banner.bannerFull}
-                alt="Terraviva, nuestro folclore nuestra gente"
+                alt="Banner Full"
                 crop=""
                 height={150}
                 width={1680}
@@ -38,10 +38,10 @@ export default async function BannerSantiago() {
         {/* Mobile */}
         <div className='container block md:hidden px-4'>
           <div style={{ width: "100%", minHeight: 130 }}>
-            <a href={banner.url} target='_blank' rel='noreferrer'>
+            <a href={banner.url} target='_blank' rel='noreferrer' aria-label="Canal de YouTube de Terraviva">
               <OptimizedImage
                 url={banner.bannerMobile}
-                alt="Terraviva, nuestro folclore nuestra gente"
+                alt="Banner Mobile"
                 crop=""
                 height={130}
                 width={380}

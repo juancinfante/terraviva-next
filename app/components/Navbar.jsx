@@ -53,7 +53,7 @@ export default function Navbar() {
             }}>
                 <div className="container mx-auto max-w-7xl flex justify-between items-center py-4 px-4">
                     {/* Logo */}
-                    <Link href="/">
+                    <Link href="/" aria-label="Ir a la página principal">
                         <div className="flex items-center">
                             <OptimizedImage
                                 url="https://res.cloudinary.com/dwjhbrsmf/image/upload/v1751903091/terraviva/terraviva-bco_dvxzbk.png"
