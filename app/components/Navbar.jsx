@@ -124,7 +124,7 @@ export default function Navbar() {
                             <button
                                 type="submit"
                                 className="hover:bg-gray-100 transition w-10 h-10 flex items-center justify-center"
-                                alt="Buscar noticias"
+                                aria-label="Buscar noticias"
                             >
                                 <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" alt="" />
                             </button>
@@ -175,7 +175,7 @@ export default function Navbar() {
                             className="hover:bg-gray-100 transition"
                             aria-label='Buscar noticias'
                         >
-                            <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" alta="" />
+                            <img src='/search-svgrepo-com.svg' className="w-4 cursor-pointer" alt="" />
                         </button>
                     </form>
                     <button
