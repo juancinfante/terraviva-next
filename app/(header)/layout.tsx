@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Script from "next/script";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -22,6 +23,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Script para Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-E14W57ZNMQ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-E14W57ZNMQ');
+          `}
+        </Script>
         <meta name="google-adsense-account" content="ca-pub-2253651827539146"></meta>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2253651827539146"
           crossOrigin="anonymous">
